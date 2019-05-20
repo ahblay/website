@@ -8,5 +8,10 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/p1.html')
+def projects():
+    return render_template('p1.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

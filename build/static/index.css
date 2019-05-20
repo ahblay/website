@@ -1,12 +1,39 @@
 body {
-    background-color: #c5c5c5;
+    background-color: #1c2125;
 }
 
 header {
-    margin-top: 100px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+}
+
+.header {
+    width: 0;
+    height: 0;
+    border-left: 450px solid transparent;
+    border-right: 450px solid transparent;
+    border-bottom: 20px solid black;
+    display: inline-block;
+}
+
+footer {
+    margin-top: 50px;
     margin-bottom: 50px;
     margin-left: 200px;
     margin-right: 200px;
+    text-align: center;
+}
+
+.footer {
+    width: 0;
+    height: 0;
+    border-left: 450px solid transparent;
+    border-right: 450px solid transparent;
+    border-top: 20px solid black;
+    display: inline-block;
 }
 
 main {
@@ -14,37 +41,43 @@ main {
     margin-right: 200px
 }
 
-.header {
-    font-size: 60px;
+.title {
+    Font-Family: 'Cormorant Garamond', Serif;
+    font-size: 70px;
     font-weight: bold;
+    padding-top: 20px;
+    color: #ffda6a;
+    text-align: left;
 }
 
 .desc {
-    font-size: 18px;
+    Font-Family: 'Fira Sans', Sans-Serif;
+    font-size: 15px;
+    color: white;
 }
 
 .projects {
     margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 150px 150px;
+    grid-template-rows: 100px 100px;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
 }
 
 .project {
-    border: 1px solid black;
+    border: 1px solid #ffda6a;
     border-radius: 2px;
-    background-color: white;
-    background-image: url("/static/project_img.jpg");
+    background-color: #1c2125;
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .p-title {
+    Font-Family: 'Cormorant Garamond', Serif;
     margin: 10px;
     text-align: center;
-    font-size: 35px;
+    font-size: 32px;
     font-weight: 500;
     color: white;
 }
