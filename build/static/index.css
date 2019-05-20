@@ -42,7 +42,7 @@ main {
 }
 
 .title {
-    Font-Family: 'Cormorant Garamond', Serif;
+    Font-Family: 'Playfair Display', Serif;
     font-size: 70px;
     font-weight: bold;
     padding-top: 20px;
@@ -51,8 +51,8 @@ main {
 }
 
 .desc {
-    Font-Family: 'Fira Sans', Sans-Serif;
-    font-size: 15px;
+    Font-Family: 'Source Sans Pro', Sans-Serif;
+    font-size: 16px;
     color: white;
 }
 
@@ -74,10 +74,10 @@ main {
 }
 
 .p-title {
-    Font-Family: 'Cormorant Garamond', Serif;
+    Font-Family: 'Playfair Display', Serif;
     margin: 10px;
     text-align: center;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 500;
     color: white;
 }
