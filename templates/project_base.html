@@ -5,16 +5,25 @@
   {% block data %}{% endblock %}
   <title>{% block title %}{% endblock %}</title>
   <link rel="stylesheet" href="/static/project_base.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Source+Sans+Pro" rel="stylesheet">
   {% block stylesheets %}{% endblock %}
 </head>
 <body>
   <header>
-    <div class="header">{% block ptitle %}{% endblock %}</div>
+    <div class="header"></div>
+    <div class="title">{% block ptitle %}{% endblock %}</div>
   </header>
   <main>
     {% block content %}{% endblock %}
   </main>
-  <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+  <footer>
+    <div class="footer"></div>
+  </footer>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+  </script>
   {% block scripts %}{% endblock %}
 </body>
 </html>
