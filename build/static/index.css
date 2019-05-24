@@ -2,7 +2,11 @@ body {
     background-color: #1c2125;
 }
 
-.divider {
+.space {
+    height: 80px;
+}
+
+.divider1 {
     height: 6px;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -58,11 +62,19 @@ main {
     text-align: left;
 }
 
-.title-sm {
+.title-md {
     Font-Family: 'Playfair Display', Serif;
     font-size: 40px;
     font-weight: bold;
-    color: #ffda6a;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.title-sm {
+    Font-Family: 'Playfair Display', Serif;
+    font-size: 30px;
+    font-weight: bold;
     text-align: left;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -76,30 +88,55 @@ main {
 
 .projects {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
 }
 
 .project {
-    border: 1px solid #ffda6a;
     border-radius: 2px;
     background-color: #1c2125;
     background-repeat: no-repeat;
     background-size: 100%;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .p-title {
     Font-Family: 'Playfair Display', Serif;
     margin: 10px;
     text-align: center;
-    font-size: 27px;
+    font-size: 20px;
     font-weight: 500;
     color: white;
+}
+
+.white {
+    color: #fff;
+}
+
+.yellow {
+    color: #ffda6a;
+}
+
+.blue {
+    color: #9FCCF9;
+}
+
+.border-yellow {
+    border: 1px solid #ffda6a;
+}
+
+.border-blue {
+    border: 1px solid #9FCCF9;
 }
 
 .p-desc {
     margin: 10px;
     margin-top: 0px;
     color: white;
+}
+
+small {
+    font-weight: bold;
 }
