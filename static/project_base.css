@@ -1,3 +1,8 @@
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
 body {
     background-color: #1c2125;
 }
@@ -5,53 +10,20 @@ body {
 header {
     margin-top: 80px;
     margin-bottom: 20px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 14%;
+    margin-right: 14%;
     text-align: center;
-}
-
-.header {
-    width: 0;
-    height: 0;
-    border-left: 450px solid transparent;
-    border-right: 450px solid transparent;
-    border-bottom: 20px solid black;
-    display: inline-block;
 }
 
 footer {
     margin-top: 50px;
     margin-bottom: 50px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 14%;
+    margin-right: 14%;
     text-align: center;
-}
-
-.footer {
-    width: 0;
-    height: 0;
-    border-left: 450px solid transparent;
-    border-right: 450px solid transparent;
-    border-top: 20px solid black;
-    display: inline-block;
 }
 
 main {
-    margin-left: 200px;
-    margin-right: 200px
-}
-
-.title {
-    Font-Family: 'Playfair Display', Serif;
-    font-size: 50px;
-    font-weight: bold;
-    padding-top: 20px;
-    color: #ffda6a;
-    text-align: center;
-}
-
-.desc {
-    Font-Family: 'Source Sans Pro', Sans-Serif;
-    font-size: 17px;
-    color: white;
+    margin-left: 14%;
+    margin-right: 14%;
 }
