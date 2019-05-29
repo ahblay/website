@@ -1,3 +1,8 @@
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
 body {
     background-color: #1c2125;
 }
@@ -17,8 +22,8 @@ body {
 header {
     margin-top: 80px;
     margin-bottom: 20px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 14%;
+    margin-right: 14%;
     text-align: center;
 }
 
@@ -34,8 +39,8 @@ header {
 footer {
     margin-top: 50px;
     margin-bottom: 50px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 14%;
+    margin-right: 14%;
     text-align: center;
 }
 
@@ -49,8 +54,8 @@ footer {
 }
 
 main {
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 14%;
+    margin-right: 14%;
 }
 
 .title {
