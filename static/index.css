@@ -27,15 +27,6 @@ header {
     text-align: center;
 }
 
-.header {
-    width: 0;
-    height: 0;
-    border-left: 450px solid transparent;
-    border-right: 450px solid transparent;
-    border-bottom: 20px solid black;
-    display: inline-block;
-}
-
 footer {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -44,58 +35,9 @@ footer {
     text-align: center;
 }
 
-.footer {
-    width: 0;
-    height: 0;
-    border-left: 450px solid transparent;
-    border-right: 450px solid transparent;
-    border-top: 20px solid black;
-    display: inline-block;
-}
-
 main {
     margin-left: 14%;
     margin-right: 14%;
-}
-
-.title {
-    Font-Family: 'Playfair Display', Serif;
-    font-size: 70px;
-    font-weight: bold;
-    padding-top: 20px;
-    color: #ffda6a;
-    text-align: left;
-}
-
-.title-md {
-    Font-Family: 'Playfair Display', Serif;
-    font-size: 40px;
-    font-weight: bold;
-    text-align: left;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.title-sm {
-    Font-Family: 'Playfair Display', Serif;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: left;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.desc {
-    Font-Family: 'Source Sans Pro', Sans-Serif;
-    font-size: 17px;
-    color: white;
-}
-
-.projects {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-row-gap: 20px;
-    grid-column-gap: 20px;
 }
 
 .project {
@@ -105,15 +47,6 @@ main {
     background-size: 100%;
     text-decoration: none;
     cursor: pointer;
-}
-
-.p-title {
-    Font-Family: 'Playfair Display', Serif;
-    margin: 10px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
 }
 
 .white {
