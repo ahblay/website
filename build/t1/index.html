@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
+  <title>
+Basic Calculus
+</title>
+  <link rel="stylesheet" media="screen and (max-width: 550px)" href="/static/project_base_mobile_small.css">
+  <link rel="stylesheet" media="screen and (min-width: 551px) and (max-width: 800px)" href="/static/project_base_mobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 701px)" href="/static/project_base_desktop.css">
+  <link rel="stylesheet" href="/static/project_base.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Source+Sans+Pro" rel="stylesheet">
+  
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/katex.min.css">
+
+</head>
+<body>
+  <header>
+    <div class="header"></div>
+    <div class="title">Basic CALCULUS</div>
+  </header>
+  <main>
+    
+<div class="desc">
+  I suspect that calculus is a whole lot easier to understand than we are led to believe. The real question is whether
+  I can support this claim by teaching it in a comprehensible way. I'm gonna give it a go here. Hopefully you'll find
+  it more educational and less daunting.
+  <br><br>
+  Before I begin, I'd like to lay out what I understand to be the roadmap for a typical undergraduate Calc 1 course. I
+  see it as three basic steps:
+  <ol>
+    <li>Intuition and justification</li>
+    <li>Mathematical explanation for intuition</li>
+    <li>Lots of rules</li>
+  </ol>
+  For the most part, I'm gonna skip step 3. Once you understand the mechanism for how calculus works (step 2), the rules
+  begin to fall into place. I'd like to spend much more time on the first two steps. Let's do it.
+  <br><br>
+  The traditional method for explaining/justifying the need for calculus is to use the example of a car. Imagine you're
+  a drag racer. (If this is too thrilling, or you're particularly unimaginative, you can think of driving on the
+  freeway.) You're idling behind the starting line (or whatever the proper terms are for drag races--it's not within the
+  scope of this discussion) as the light blinks from red, to yellow, to green (see previous parenthetical). As it turns
+  green, you kick the car into gear and go roaring off down the track.
+  <br><br>
+  Let's suppose that 5 seconds after the race has begun, you glance down at the speedometer (do drag racers do this?)
+  and see that it reads 70 MPH. What does this mean? Well, quite literally it says that you are going seventy miles
+  every hour. Of course, the racetrack is nowhere near seventy miles long, so this number is really just an average. It's
+  telling you that, if you kept going at exactly the speed you are going right now for one hour, you would cover exactly
+  seventy miles.
+  <br><br>
+  Okay. This seems mostly fine. There's just one little question. What does "the speed you are going right now" really
+  mean? This isn't meant to be a stupid question. Think about it. How long is "right now?" It's not one second. That
+  would include a little bit of time before "right now". It isn't one tenth of a second. There's still a pesky little
+  bit of "back then" time. Clearly, it isn't any range of time, no matter how small. It's just one, very specific point
+  in time. It's as though we took a picture of the car. But if we just look at that picture of a car, it certainly isn't
+  moving. (You might object and suggest that the photo of the car really isn't one point in time, because the camera's
+  shutter takes some period of time to close, and so the picture really does capture movement--the car may appear
+  blurry--but let's take some liberties and ignore this issue.) So is "the speed you are going right now" zero? That
+  doesn't feel quite right.
+  <br><br>
+  Let's revisit what speed is. In the States, we typically think of speed as miles per hour. The civilized world measures
+  it in kilometers per hour. The scientific community says meters per second. No matter what you choose, you are stuck
+  with some form of distance per time. And each of these is fundamentally an average. And we want to know what happens
+  when that time component drops down to "right now." In other words, we want to know what speed means when the time
+  elapsed is zero. And not only that. We decided that that in the "right now" moment, the car isn't moving either. So,
+  after all that, we want to know what speed means when no movement has taken place and no time has passed. We want
+  <div class="math">\frac{0}{0}.</div>
+  Clearly, this number is going to vary a lot depending on context. If we take a picture of a moving car, its speed at
+  this instantaneous moment in time ought to be very different from that of a parked car. Let's think of some of the ways
+  we might provide this context.
+</div>
+
+  </main>
+  <footer>
+    <div class="footer"></div>
+  </footer>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+  </script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/katex.min.js" type="text/javascript"></script>
+<script src="/static/math.js" type="text/javascript"></script>
+
+</body>
+</html>
