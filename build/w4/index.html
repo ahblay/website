@@ -1,18 +1,28 @@
-{% extends "project_base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
 
-{% block data %}
-{% endblock %}
-
-{% block title %}
+  <title>
 The Salesman
-{% endblock %}
+</title>
+  <link rel="stylesheet" media="screen and (max-width: 550px)" href="/static/project_base_mobile_small.css">
+  <link rel="stylesheet" media="screen and (min-width: 551px) and (max-width: 800px)" href="/static/project_base_mobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 701px)" href="/static/project_base_desktop.css">
+  <link rel="stylesheet" href="/static/project_base.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Source+Sans+Pro" rel="stylesheet">
+  
 
-{% block stylesheets %}
-{% endblock %}
-
-{% block ptitle %}The SALESMAN{% endblock %}
-
-{% block content %}
+</head>
+<body>
+  <header>
+    <div class="header"></div>
+    <div class="title">The SALESMAN</div>
+  </header>
+  <main>
+    
 <div class="desc">
   We open on the front porch of a suburban home. The front door is pale pink with a brass knob and brass mail slot. A
   welcome mat reads, “Welcome!” in a cheery font. A man steps up to the door. He’s wearing navy blue coveralls and a
@@ -65,6 +75,16 @@ The Salesman
   <br><br>
   RANDALL: …Bye.
 </div>
-{% endblock %}
 
-{% block scripts %}{% endblock %}
+  </main>
+  <footer>
+    <div class="footer"></div>
+  </footer>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+  </script>
+  
+</body>
+</html>
