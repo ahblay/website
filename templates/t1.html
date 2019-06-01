@@ -61,6 +61,44 @@ Basic Calculus
   Clearly, this number is going to vary a lot depending on context. If we take a picture of a moving car, its speed at
   this instantaneous moment in time ought to be very different from that of a parked car. Let's think of some of the ways
   we might provide this context.
+  <br><br>
+  One approach might be to take two successive pictures of the car. Let's suppose we take one picture five seconds after
+  it has left the starting line, and a second two seconds later. Furthermore, let's make note of how far the car has
+  travelled when each photo is taken. This should help us establish some context for how quickly the car's position is
+  changing relative to time. And how quickly is its position changing? It's just the amount of distance covered divided
+  by the amount of time elapsed between those two photos. For example, let's say that the car had covered 200 meters
+  when the first photo was taken, and 300 meters when the second photo was taken. Then:
+  <div class="math">\frac{300m - 200m}{7s - 5s} = 50 \space m/s</div>
+  What does this result tell us? It's saying that in the time between when the two photos were taken, the car's position
+  changed an average of 50 meters every second, or its average speed was 50 meters per second. It seems that providing
+  context to our one photo of the car has allowed us estimate its speed. This is useful, but it still doesn't tell us
+  the speed is it going "right now." We're still stuck guessing between "then" and "now." However, sometimes guesswork
+  can be insightful, so let's try to refine this estimate.
+  <br><br>
+  It seems that the closer in time that we take our photos, the more precise our approximations will become. With that
+  in mind, let's try taking our second photo just one second after the first. Now, the car has travelled 240 meters,
+  and so we find its average speed to be
+  <div class="math">\frac{240m - 200m}{6s - 5s} = 40 \space m/s.</div>
+  Continuing this process, we might measure the car's progress after half a second, or a quarter second, or and eighth...
+  In fact, we would hope to get our two measurements as close as possible, while ensuring that they still differ by
+  some minute quantity (so as to avoid the dividing by zero complexity we encountered in equation (1)). Mathematicians,
+  being lazy creatures, have developed some symbols to summarize this process, and we shall introduce some of them here.
+  <br><br>
+  Let's begin with our variables for distance and time, which we shall represent with <span class="math">s</span> and
+  <span class="math">t</span>, respectively. (We use <span class="math">s</span> rather than <span class="math">d</span>
+  because <span class="math">d</span> will be used to mean something else entirely, and we don't wish to confuse
+  ourselves.) Rather calculating the difference between two distances and times, we shall represent these differences
+  with the expressions <span class="math">\Delta s</span> and <span class="math">\Delta t</span>. (The symbol
+  <span class="math">\Delta</span> is pronounced "delta" and can be thought to mean "change in.") Finally, to
+  communicate the idea that our two photos are taken nearer and nearer to each other, we shall say that we are looking
+  for "the limit as the change in time approaches zero," and symbolize this as
+  <span class="math">\lim_{\Delta t \to 0}</span>. Putting all of this together, we may summarize our process for
+  guessing the car's instantaneous speed as
+  <div class="math">\lim_{\Delta t \to 0} \frac{\Delta s}{\Delta t}.</div>
+  Great. So what actually is the car's instantaneous speed?
+  <br><br>
+  In order to answer that question, let's take a step back and more accurately define the motion of the car. We'll be
+  super precise and describe exactly how far it has travelled at every moment since leaving the starting line.
 </div>
 {% endblock %}
 
