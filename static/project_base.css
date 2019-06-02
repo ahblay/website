@@ -27,3 +27,10 @@ main {
     margin-left: 14%;
     margin-right: 14%;
 }
+
+.plot {
+    display: block;
+    width: 40%;
+    height: auto;
+    margin: 25px auto 20px auto;
+}

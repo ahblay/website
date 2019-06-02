@@ -11,7 +11,6 @@ $(function(){
             tag = "";
             disp = false;
         }
-        console.log(tag + katexText);
         try {
             katex.render(tag + katexText, element, {displayMode: disp});
         }
