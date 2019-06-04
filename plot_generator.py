@@ -15,12 +15,77 @@ plt.rcParams['ytick.labelsize'] = 15
 plt.rcParams['lines.linewidth'] = 2
 
 def simple_car():
-    x = np.linspace(0, 10, 100)
-    y = x**2
+    x = np.linspace(0, 8, 100)
+    y = 8*x**2
     plt.plot(x, y)
-    plt.ylabel('Distance (s)')
-    plt.xlabel('Time (t)')
+    plt.ylabel('Distance (m)')
+    plt.xlabel('Time (s)')
     plt.tight_layout()
     plt.savefig('static/simple_car.png', transparent=True)
 
-simple_car()
+def photos_car():
+    x = np.linspace(0, 8, 100)
+    y = 8*x**2
+    plt.plot(x, y)
+    plt.plot(5, 200, 'ro')
+    plt.plot(7, 392, 'ro')
+    plt.ylabel('Distance (m)')
+    plt.xlabel('Time (s)')
+    plt.tight_layout()
+    plt.savefig('static/photos_car.png', transparent=True)
+
+def slope_car():
+    x = np.linspace(0, 8, 100)
+    y = 8*x**2
+    plt.plot(x, y)
+    plt.plot([5, 7], [200, 392], 'ro-')
+    plt.ylabel('Distance (m)')
+    plt.xlabel('Time (s)')
+    plt.tight_layout()
+    plt.savefig('static/slope_car.png', transparent=True)
+
+def multislope_car():
+    plt.ylim(150, 450)
+    x = np.linspace(4.5, 7.5, 100)
+    y = 8*x**2
+    plt.plot(x, y, 'w')
+    intervals = [2, 1, 0.5, 0.25]
+    colors = ['r', 'g', 'c', 'm']
+    cp = 5
+    for i, j in zip(intervals, colors):
+        x_1 = cp
+        x_2 = cp + i
+        y_1 = 8 * x_1**2
+        y_2 = 8 * x_2**2
+        m = (y_2 - y_1)/(x_2 - x_1)
+        plt.plot(x, m * (x - x_1) + y_1, j + ':')
+        plt.plot(x_1, y_1, 'wo')
+        plt.plot(x_2, y_2, j + 'o')
+    plt.ylabel('Distance (m)')
+    plt.xlabel('Time (s)')
+    plt.tight_layout()
+    plt.savefig('static/multislope_car.png', transparent=True)
+
+def multislope_car_zoom():
+    plt.ylim(190, 230)
+    x = np.linspace(4.9, 5.3, 100)
+    y = 8*x**2
+    plt.plot(x, y, 'w')
+    intervals = [0.25]
+    colors = ['m']
+    cp = 5
+    for i, j in zip(intervals, colors):
+        x_1 = cp
+        x_2 = cp + i
+        y_1 = 8 * x_1**2
+        y_2 = 8 * x_2**2
+        m = (y_2 - y_1)/(x_2 - x_1)
+        plt.plot(x, m * (x - x_1) + y_1, j + ':')
+        plt.plot(x_1, y_1, 'wo')
+        plt.plot(x_2, y_2, j + 'o')
+    plt.ylabel('Distance (m)')
+    plt.xlabel('Time (s)')
+    plt.tight_layout()
+    plt.savefig('static/multislope_car_zoom.png', transparent=True)
+
+multislope_car_zoom()

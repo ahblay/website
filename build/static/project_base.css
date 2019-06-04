@@ -28,6 +28,19 @@ main {
     margin-right: 14%;
 }
 
+.yellow {
+    color: #ffda6a;
+}
+
+.title-sm {
+    Font-Family: 'Playfair Display', Serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .plot {
     display: block;
     width: 40%;

@@ -28,7 +28,7 @@ Basic Calculus
   </ol>
   For the most part, I'm gonna skip step 3. Once you understand the mechanism for how calculus works (step 2), the rules
   begin to fall into place. I'd like to spend much more time on the first two steps. Let's do it.
-  <br><br>
+  <div class="title-sm yellow">What is Speed?</div>
   The traditional method for explaining/justifying the need for calculus is to use the example of a car. Imagine you're
   a drag racer. (If this is too thrilling, or you're particularly unimaginative, you can think of driving on the
   freeway.) You're idling behind the starting line (or whatever the proper terms are for drag races--it's not within the
@@ -98,9 +98,43 @@ Basic Calculus
   Great. So what actually is the car's instantaneous speed?
   <br><br>
   In order to answer that question, let's take a step back and more accurately define the motion of the car. We'll be
-  super precise and describe exactly how far it has travelled at every moment since leaving the starting line.
+  super precise and describe exactly how far it has travelled at every moment since leaving the starting line. For
+  simplicity's sake, let's assume that the car accelerates all the way to the finish line. (While this may not be
+  strictly true for drag racers, it will make the math simpler, so we'll let it slide.) Let's define the car's distance
+  travelled <span class="math">d</span> as
+  <div class="math">d = 8x^2.</div>
+  While this equation isn't strictly accurate (we shall see that at the end of the race the car is going over 250 MPH),
+  it is good enough to illustrate the point. The equation is graphed below.
   <img id="simple-car" class="plot" src="../static/simple_car.png">
-  TEST WRITING TO ENSURE PROPER SPACING blhaf qwefj j qweffjfjqkwejfn kjqnwefkjlbqlkwjebf jbqlwfjklqbwelkfjbqlkjwb flkqwjebf lkqwjebf lqkjwebf
+  Let's note when we took photos of the car as two red points on this line: one at 5 seconds and the other at 7.
+  <img id="photos-car" class="plot" src="../static/photos_car.png">
+  Recall that to find the average speed between when these photos were taken, we used the equation
+  <div class="math">\frac{s_1 - s_2}{t_1 - t_2}</div>
+  where <span class="math">s_n</span> is the distance travelled when the n-th photo was taken and
+  <span class="math">t_n</span> is the time when the n-th photo was taken. For those of us who remember a bit of high
+  school algebra, equation (6) might be familiar as the expression for the slope of a line passing through the points
+  <span class="math">(t_1, s_1)</span> and <span class="math">(t_2, s_2)</span>. What we are saying is that the
+  average speed of the car between two points in time can be represented as the slope of a line drawn between those two
+  points.
+  <img id="slope-car" class="plot" src="../static/slope_car.png">
+  Just as before, we would like to know what happens when we move these two points closer and closer together. (Recall
+  that the nearer these points are, the better an approximation we have for the car's speed.) Let's do just that,
+  drawing each of the slopes (representing the speeds) onto our plot.
+  <img id="multislope-car" class="plot" src="../static/multislope_car.png">
+  Although it is a little difficult to read, we can see that the nearer our points get, the better their slope approximates
+  the shape of the curve itself. This is increasingly obvious if we zoom in on the two nearest points, where we see the
+  slopes as nearly identical:
+  <img id="multislope-car-zoom" class="plot" src="../static/multislope_car_zoom.png">
+  When, then, is the geometrical interpretation of "the speed right now?" It is the slope of the line that we get when
+  those two points converge. In other words, it is the slope of the line that intersects the curve at exactly one point.
+  Such a line is said to be tangent to the curve (or a tangent line) and every point on a continuous, smooth curve has
+  exactly one of these. So, the natural question becomes: "How can we find the slope of this tangent line at a given
+  point?" If we find this, we have found our instantaneous speed.
+  <div class="title-sm yellow">Finding the Slope of a Tangent Line</div>
+  Let's revisit expression (4):
+  <div class="math">\lim_{\Delta t \to 0} \frac{\Delta s}{\Delta t}.</div>
+  Remember that this means, "the limit as the change in time approaches zero of the change in distance divided by the
+  change in time," or, "the limit as the change in time approaches zero of the average velocity."
 </div>
 {% endblock %}
 
