@@ -67,7 +67,7 @@ Basic Calculus
   when that time component drops down to "right now." In other words, we want to know what speed means when the time
   elapsed is zero. And not only that. We decided that that in the "right now" moment, the car isn't moving either. So,
   after all that, we want to know what speed means when no movement has taken place and no time has passed. We want
-  <div class="math">\frac{0}{0}.</div>
+  <div class="math">\frac{0 m}{0 s}.</div>
   Clearly, this number is going to vary a lot depending on context. If we take a picture of a moving car, its speed at
   this instantaneous moment in time ought to be very different from that of a parked car. Let's think of some of the ways
   we might provide this context.
@@ -111,8 +111,8 @@ Basic Calculus
   super precise and describe exactly how far it has travelled at every moment since leaving the starting line. For
   simplicity's sake, let's assume that the car accelerates all the way to the finish line. (While this may not be
   strictly true for drag racers, it will make the math simpler, so we'll let it slide.) Let's define the car's distance
-  travelled <span class="math">d</span> as
-  <div class="math">d = 8x^2.</div>
+  travelled <span class="math">s</span> as
+  <div class="math">s = 8t^2.</div>
   While this equation isn't strictly accurate (we shall see that at the end of the race the car is going over 250 MPH),
   it is good enough to illustrate the point. The equation is graphed below.
   <img id="simple-car" class="plot" src="../static/simple_car.png">
@@ -144,7 +144,41 @@ Basic Calculus
   Let's revisit expression (4):
   <div class="math">\lim_{\Delta t \to 0} \frac{\Delta s}{\Delta t}.</div>
   Remember that this means, "the limit as the change in time approaches zero of the change in distance divided by the
-  change in time," or, "the limit as the change in time approaches zero of the average velocity."
+  change in time," or, "the limit as the change in time approaches zero of the average velocity." How might we apply
+  this idea to our expression for the car's movement:
+  <div class="math">s = 8t^2?</div>
+  Before, when estimating the velocity, we chose two specific points in time to get an average. Let's do the same thing,
+  but instead of picking numerical values (like 5 seconds and 7 seconds), we'll pick arbitrary points in time. We shall
+  call the point in time for which we wish to measure the instantaneous speed <span class="math">t_0</span>, and the
+  other point <span class="math">t_0 + \Delta t</span>. In this way, we may calculate the average speed over the
+  interval <span class="math">\Delta t</span>, for a <span class="math">\Delta t</span> of arbitrarily small size. Let's
+  apply this idea to expression (4).
+  <br><br>
+  What is <span class="math">\Delta s</span> in this expression? Recall that <span class="math">\Delta s</span>
+  describes the difference in distance between our two points in time. But what is the expression for this distance?
+  It's right there in equation (8)! We simply need to evaluate this equation at the points
+  <span class="math">t_0</span> and <span class="math">t_0 + \Delta t</span>. Doing so, we find that
+  <div class="math">\Delta s = 8(t_0 + \Delta t)^2 - 8 t_0^2.</div>
+  Expanding and combining like terms in this expression leaves us with
+  <div class="math">\Delta s = 16 t_0 \Delta t + (\Delta t)^2.</div>
+  Let's plug this result back into expression (4). (The denominator of expression (4) remains the same. In our case, we
+  have <span class="math">\Delta t = (t_0 + \Delta t) - t_0 = \Delta t.</span>) Doing so gives us
+  <div class="math">\lim_{\Delta t \to 0} \frac{16 t_0 \Delta t + (\Delta t)^2}{\Delta t}.</div>
+  Let's cancel the <span class="math">\Delta t</span>'s:
+  <div class="math">\lim_{\Delta t \to 0} 16 t_0 + \Delta t.</div>
+  Now, before we do the crucial last step, let's review what it is we are looking at. The expression
+  <span class="math">16 t_0 + \Delta t</span> gives us the average velocity of the car between the points in time
+  <span class="math">t_0</span> and <span class="math">t_0 + \Delta t.</span> We take "the limit as
+  <span class="math">t</span> approaches zero" of this expression to determine increasing accurate estimations of the
+  instantaneous velocity of the car at time <span class="math">t_0</span>. Okay.
+  <br><br>
+  Let's let <span class="math">t_0</span> go towards zero. Unlike before, this is achievable due to the fact that we no
+  longer have any <span class="math">\Delta t</span>'s in the denominator. Setting <span class="math">\Delta t</span>
+  to zero, we get
+  <div class="math">16 t_0</div>
+  an expression for the instantaneous velocity at time <span class="math">t_0</span>! Let's now take a moment to understand
+  what we have done geometrically.
+  <br><br>
 </div>
 
   </main>
