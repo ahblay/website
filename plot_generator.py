@@ -88,4 +88,17 @@ def multislope_car_zoom():
     plt.tight_layout()
     plt.savefig('static/multislope_car_zoom.png', transparent=True)
 
-multislope_car_zoom()
+def deltas_car():
+    x = np.linspace(0, 8, 100)
+    y = 8*x**2
+    plt.plot(x, y)
+    plt.plot(5, 200, 'ro')
+    plt.annotate(s='$t_0$', xy=(5, 200), xytext=(4.3, 200), size=18)
+    plt.plot(7, 392, 'ro')
+    plt.annotate(s='$t_0 + \Delta t$', xy=(7, 392), xytext=(5.4, 392), size=18)
+    plt.ylabel('Distance (m)')
+    plt.xlabel('Time (s)')
+    plt.tight_layout()
+    plt.savefig('static/deltas_car.png', transparent=True)
+
+deltas_car()

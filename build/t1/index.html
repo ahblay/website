@@ -176,9 +176,86 @@ Basic Calculus
   longer have any <span class="math">\Delta t</span>'s in the denominator. Setting <span class="math">\Delta t</span>
   to zero, we get
   <div class="math">16 t_0.</div>
-  This is an expression for the instantaneous velocity at time <span class="math">t_0</span>! Let's now take a moment
-  to understand what we have done geometrically.
+  This is an expression for the instantaneous velocity at time <span class="math">t_0</span>! This result allows us to
+  determine the exact speed at which the car is moving at any point in time. It also tells us the slope of the line
+  tangent to the curve <span class="math">s = 8 t^2</span> at any point <span class="math">t_0</span>. Let's now take a
+  moment to discuss how we might have achieved this result geometrically.
   <br><br>
+  As before, we shall start with a graph of this curve, and consider two points on this graph:
+  <span class="math">t_0</span> and <span class="math">t_0 + \Delta t</span>.
+  <img id="deltas-car" class="plot" src="../static/deltas_car.png">
+  We then wish to take the limit as
+  <span class="math">\Delta t</span> approaches zero. Similarly to our previous discussion, we can achieve this by
+  moving the point <span class="math">t_0 + \Delta t</span> nearer and nearer to <span class="math">t_0</span>. When
+  these points converge, the line that was formed by connecting them becomes the tangent line, and it's slope becomes
+  <span class="math">\lim_{\Delta t \to 0} 16 t_0 + \Delta t</span>, or <span class="math">16 t_0</span>.
+  <div class="title-sm yellow">Going Further</div>
+  In the previous section, we laid out a method for finding the instantaneous speed of a car given an equation modelling
+  its movement. Let's quickly review this method, and show how it might be used on any arbitrary equation.
+  <br><br>
+  We began with a function describing the car's position <span class="math">s</span> at any time
+  <span class="math">t</span>. Rather than giving a specific equation, let's just call this function
+  <span class="math">f(t)</span>. We then chose two values (points in time) at which to evaluate this function. We
+  called these values <span class="math">t_0</span> and <span class="math"> t_0 + \Delta t</span>. Plugging these values
+  into our function gives us <span class="math">f(t_0)</span> and <span class="math">f(t_0 + \Delta t</span>. We then
+  calculated the average speed between these two points using the expression
+  <div class="math">\frac{\Delta s}{\Delta t}. </div>
+  Doing this here, we are left with
+  <div class="math">\frac{f(t_0 + \Delta t) - f(t_0)}{\Delta t}.</div>
+  Finally, we took the limit as <span class="math">\Delta t</span> approached zero. In our case:
+  <div class="math">\lim_{\Delta t \to 0} \frac{f(t_0 + \Delta t) - f(t_0)}{\Delta t}.</div>
+  Let's do a quick example to show how this process might work on a different equation. We'll try
+  <div class="math">f(t) = 3 t^3 + 2t + 5.</div>
+  First, we calculate <span class="math">f(t_0)</span> and <span class="math">f(t_0 + \Delta t)</span>. We find:
+  <div class="math">f(t_0) = 3 t_0^3 + 2t_0 + 5</div>
+  <div class="math">f(t_0 + \Delta t) = 3 (t_0 + \Delta t)^3 + 2(t_0 + \Delta t) + 5.</div>
+  Let's first simplify the second equation. We'll begin by multiplying out the exponents:
+  <div class="math">f(t_0 + \Delta t) = 3 (t_0^3 + 3 t_0^2 \Delta t + 3 t_0 (\Delta t)^2 + (\Delta t)^3) + 2t_0 + 2 \Delta t + 5.</div>
+  Tidying and rearranging:
+  <div class="math">f(t_0 + \Delta t) = 3 t_0^3 + 2t_0 + 9 t_0^2 \Delta t + 9 t_0 (\Delta t)^2 + 3(\Delta t)^3) + 2 \Delta t + 5.</div>
+  Let's plug this into equation (15).
+  <div class="math">\frac{(3 t_0^3 + 2t_0 + 9 t_0^2 \Delta t + 9 t_0 (\Delta t)^2 + 3(\Delta t)^3) + 2 \Delta t + 5) -
+    (3 t_0^3 + 2t_0 + 5)}{\Delta t}.</div>
+  Combining like terms in the numerator and cancelling the <span class="math">\Delta t</span>'s:
+  <div class="math">9 t_0^2 + 9 t_0 \Delta t + 3 (\Delta t)^2 + 2.</div>
+  We are now prepared to take the limit as <span class="math">\Delta t</span> approaches zero. Doing so, we find that
+  <div class="math">\lim_{\Delta t \to 0} 9 t_0^2 + 9 t_0 \Delta t + 3 (\Delta t)^2 + 2 = 9 t_0^2 + 2.</div>
+  This, then, is the expression for the instantaneous velocity at time <span class="math">t_0</span> of the object who's
+  position is described by the function <span class="math">f(t) = 3 t^3 + 2t + 5</span>. However, given that this function need
+  not always describe movement (and in fact could represent a host of other things), it is better to think of this expression
+  as the slope of the tangent line at the point <span class="math">t_0</span>.
+  <br><br>
+  (I should interject here to note that it is also common to refer to this result as the instantaneous rate of change of
+  <span class="math">f(t)</span> with respect to <span class="math">t</span>. This makes sense if we consider velocity
+  to be the rate of change of distance with respect to time--in other words, "How much distance do we cover over some
+  period of time <span class="math">t</span>?" We are simply generalizing this idea away from the concepts of distance
+  and time. Also, the instantaneous rate of change of some function <span class="math">f(x)</span> with respect to
+  <span class="math">x</span> is more commonly called the derivative of <span class="math">f(x)</span> with respect
+  to <span class="math">x</span>.)
+  <br><br>
+  So, we've found that the derivative of <span class="math">f(t) = 3 t^3 + 2t + 5</span> is
+  <span class="math">9 t_0^2 + 2</span>. Unfortunately, the process of attaining this result required some arduous
+  algebraic manipulation, and we sure would like to avoid doing that process in the future. Perhaps we can find some
+  sort of pattern between a function and its derivative that would allow us to skip the boring math. If we did enough
+  examples like the one above, we might notice that every term in the derivative can be found by taking the
+  corresponding term in the original function, multiplying its coefficient by the value of its exponent, and reducing
+  the exponent's value by one. In mathematical terms, we would say that the derivative of <span class="math">ax^n</span>
+  is <span class="math">nax^{n-1}</span>. Let's apply this rule to our example function
+  <span class="math">f(t) = 3 t^3 + 2t + 5</span>. We'll look at each term individually:
+  <div class="math">3 t^3 \to 9 t^2</div>
+  <div class="math">2t = 2t^1 \to 2t^0 = 2</div>
+  <div class="math">5 = 5t^0 \to 0 \times 5t^{-1} = 0.</div>
+  Summing these back up, we find that the derivative is <span class="math">9t^2 + 2</span>, just as we expected.
+  <br><br>
+  Some of you may object to the hand-waviness of our approach in the previous paragraph. How are we to know that this
+  technique works in all circumstances? We've only seen two examples. What if we have different types of functions?
+  This is a very reasonable objection. As it turns out, different functions behave very differently when we try to
+  find their derivatives, and the above strategy only works for a very particular subset of them. Learning how to find
+  the derivatives of other types of functions is one of the main focuses of an introductory calculus course, and not
+  something I'm going to get into here. However, I will present the proof for the above technique (called the Power
+  Rule). If you are inspired, the framework for this proof can be adapted to demonstrate how to find the derivatives of
+  other types of functions.
+  <div class="title-sm yellow">One Little Proof</div>
 </div>
 
   </main>
