@@ -256,6 +256,73 @@ Basic Calculus
   Rule). If you are inspired, the framework for this proof can be adapted to demonstrate how to find the derivatives of
   other types of functions.
   <div class="title-sm yellow">One Little Proof</div>
+  We are going to prove the Power Rule. To be perfectly clear, the Power Rule states that the derivative of any
+  function <span class="math">f(x)</span> of the form <span class="math">ax^n</span> where <span class="math">a</span>
+  is a constant and <span class="math">n</span> is a positive integer is <span class="math">f'(x) = nax^{n-1}</span>.
+  (Two things of note here: (1) The Power Rule applies to all real values of <span class="math">n</span>, but this proof
+  only works when <span class="math">n</span> is a positive integer, and (2) the derivative of <span class="math">f(x)</span>
+  is typically written in one of two ways--<span class="math">f'(x)</span> or <span class="math">\frac{d}{dx} f(x)</span>.)
+  <br><br>
+  We shall approach this proof in much the same way that we went about finding the derivatives of specific functions:
+  <ol>
+    <li>Calculate the value of our function <span class="math">f(x) = ax^n</span> at two specific points
+      <span class="math">b</span> and <span class="math">c</span>.</li>
+    <li>Determine the average rate of change between these two points.</li>
+    <li>Take the limit of this expression as the point <span class="math">c</span> approaches <span class="math">b</span>.</li>
+    <li>Simplify.</li>
+  </ol>
+  Evaluating <span class="math">f(x)</span> at <span class="math">b</span> and <span class="math">c</span> is easy. We
+  are left with:
+  <div class="math">
+    \begin{aligned}
+      f(b) = ab^n \\
+      f(c) = ac^n.
+    \end{aligned}
+  </div>
+  To determine the average rate of change between these points we use the familiar expression
+  <span class="math">\frac{\Delta s}{\Delta t} = \frac{\Delta f(x)}{\Delta x}</span>. This gives:
+  <div class="math">\frac{ac^n - ab^n}{c - b}.</div>
+  Let's now take the limit as <span class="math">c</span> approaches <span class="math">b</span> (we'll also factor out
+  the constant <span class="math">a</span> to simplify the expression):
+  <div class="math">a \lim_{c \to b} \frac{c^n - b^n}{c - b}.</div>
+  Here's where things get a bit hairier. We cannot straightaway take the limit as <span class="math">c</span> approaches
+  <span class="math">b</span>, as that will leave us with zeros in both the numerator and denominator. Rather, we must
+  use some cleverness to find a way to simplify this expression, ideally by removing the <span class="math">c-b</span>
+  from the denominator. How might we do this? Well, if we can find a way to factor <span class="math">c-b</span> from
+  <span class="math">c^n - b^n</span> in the numerator, then we could cancel the <span class="math">c-b</span>'s. This
+  seems promising, so let's give it a go.
+  <br><br>
+  What type of expression must we multiply by <span class="math">c-b</span> in order to be left with
+  <span class="math">c^n - b^n</span>? Certainly, it must contain terms <span class="math">c^{n-1}</span> and
+  <span class="math">b^{n-1}</span>. However, it cannot be as simple as <span class="math">c^{n-1} + b^{n-1}</span>
+  as that leaves us with
+  <div class="math">(c-b)(c^{n-1} + b^{n-1}) = c^n - b^n + cb^{n-1} - bc^{n-1}.</div>
+  How can we deal with those pesky extra terms? The idea is to introduce a bunch of additional terms that cancel all
+  of them out. Without going to the trouble of explaining exactly where this expression came from (if you are curious,
+  Google "difference of powers" or "binomial coefficient"), we are able to produce the following factor:
+  <div class="math">c^n - b^n = (c-b)(c^{n-1} + bc^{n-2} + b^{2}c^{n-3} + ... + b^{n-3}c^{2} + b^{n-2}c + b^{n-1}).</div>
+  Substituting this into the numerator and cancelling the <span class="math">c-b</span>'s:
+  <div class="math">a \lim_{c \to b} c^{n-1} + bc^{n-2} + b^{2}c^{n-3} + ... + b^{n-3}c^{2} + b^{n-2}c + b^{n-1}.</div>
+  We are now able to take the limit without the issue of dividing by zero. Doing so:
+  <div class="math">a (b^{n-1} + b(b)^{n-2} + b^{2}(b)^{n-3} + ... + b^{n-3}(b)^{2} + b^{n-2}(b) + b^{n-1}).</div>
+  It is now just a matter of simplifying this expression. Clearly, each of the terms in this expression can be simplified
+  to <span class="math">b^{n-1}</span>. We are just left with the question of how many there are. This is not such a
+  tricky question to answer. We can see that each term has a power of <span class="math">b</span> ranging from
+  <span class="math">n-1</span> to <span class="math">0</span>. As there are <span class="math">n</span> numbers from
+  <span class="math">0</span> to <span class="math">n-1</span>, there must be <span class="math">n</span> total
+  <span class="math">b^{n-1}</span> terms. Adding these all up, we are left with
+  <div class="math">a nb^{n-1}.</div>
+  Replacing the specific value of <span class="math">b</span> with the variable <span class="math">x</span>, we are left
+  with
+  <div class="math">f'(x) = nax^{n-1}.</div>
+  This is, of course, what we set out to prove! As the mathematicians say, Q.E.D.
+  <div class="title-sm yellow">Final Thoughts</div>
+  What you've read above, in my opinion, encapsulates all of the most fundamental basic elements of differential calculus.
+  Naturally, if you want to apply these ideas to physical problems, you will find yourself dramatically under-equipped.
+  There are many more techniques that are necessary to evaluate the derivatives of other types of equations, and the
+  complexity of the techniques increases massively as the functions in question become more and more convoluted. However,
+  the idea of approximating the derivative as the slope between two nearby points remains instructive even in far more
+  complex contexts. Remember that.
 </div>
 
   </main>
