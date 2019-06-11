@@ -47,3 +47,19 @@ main {
     height: auto;
     margin: 25px auto 20px auto;
 }
+
+table {
+    margin: 25px auto 45px auto;
+    border-collapse: collapse;
+}
+
+td, th {
+    border-bottom: 1px solid white;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: #ffda6a;
+    color: #1c2125;
+}
