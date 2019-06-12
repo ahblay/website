@@ -95,6 +95,22 @@ Dynamical Systems
   next question (this being a math post, after all) is how we might use an equation to model the shape of these curves.
   What type of equation would both express the initial quasi-exponential growth of a population and the subsequent
   tapering off as that population reached carrying capacity?
+  <br><br>
+  Let's first attempt to describe the exponential growth phase. Certainly, a population's growth is a function of its
+  size. Let's consider how large a population of size <span class="math">P_t</span> will become after one generation.
+  At the very least, the subsequent generation (which we shall call <span class="math">P_{t+1}</span>) will be equal to
+  <span class="math">P_t</span>. So, in the most basic case, we have:
+  <div class="math">P_{t+1} = P_t.</div>
+  We should also like to add some term that accounts for new offspring born into the population. As we discussed before,
+  the number of offspring ought to be a function of the current population's size. Let's suppose that some percentage
+  <span class="math">r</span> of the current population breed each generation. In that case, the number of new
+  offspring can be represented by <span class="math">rP_t</span>. Putting all of this together, we can come up with
+  an equation to describe the exponential growth phase after one generation:
+  <div class="math">P_{t+1} = P_t + rP_t.</div>
+  The issue here is that this equation will produce larger and larger outputs generation after generation. There
+  is nothing to slow it down. What can we do to fix this?
+  <br><br>
+  
 </div>
 
   </main>
