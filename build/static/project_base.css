@@ -63,3 +63,12 @@ tr:hover {
     background-color: #ffda6a;
     color: #1c2125;
 }
+
+tr:first-child:hover {
+    background-color: #1c2125;
+    color: #ffda6a;
+}
+
+.normal-link {
+    color: #ffda6a;
+}

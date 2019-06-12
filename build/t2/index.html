@@ -47,30 +47,54 @@ Dynamical Systems
     </tr>
     <tr>
       <td>2</td>
-      <td>2</td>
+      <td>4</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2</td>
+      <td>7</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>2</td>
+      <td>11</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>2</td>
+      <td>16</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>2</td>
+      <td>19</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>2</td>
+      <td>20</td>
     </tr>
   </table>
-  
+  You notice that although the population growth starts off rather vigorously, after the fifth generation, the goldfish
+  seem to have settled their numbers at around twenty. In fact, checking the pond today, there seem to be roughly the
+  same number of fish as there were back when you stopped keeping track in your journal. To assure yourself of this
+  conclusion, you sketch out a quick graph of the pond's goldfish population by generation:
+  <img id="simple-fish" class="plot" src="../static/simple_fish.png">
+  It certainly seems that your assessment was correct! At first, the population grows rapidly, but then it seems to hit
+  a wall at which it cannot increase further. 'Neat, I guess,' you think, and then go off to browse reddit because,
+  honestly, who cares about the growth of a goldfish population in a pond?
+  <br><br>
+  Okay, so that's enough with the stupid storytelling. What I was trying to do in the paragraphs above was illustrate an
+  important (and perhaps obvious) fact about modelling population dynamics in nature (or ponds): growth is NOT
+  rampantly exponential. It's pretty easy to understand why this is true. The world that we live in has a finite supply
+  of resources. Whether we are talking about the global human population or goldfish in a backyard pond, there's only
+  so much food and space to share before we (or the fish) become starved and stifled. Of course, before we reach this
+  resource ceiling (so to speak), there's very little to stop a population from booming--providing the hopeful
+  assumption that no big predators are out there eating many of us. This is why the goldfish seemed to be doing so well
+  for the first five generations, before their numbers tapered off at twenty.
+  <div class="title-sm yellow">The S-curve</div>
+  It seems that many examples of population growth follow a shape similar to that of our goldfish population. (Does it
+  not seem that way? Check out these:
+  <a class="normal-link" href="http://worldpopulationreview.com/us-cities/new-york-city-population/">New York City</a>
+  and <a class="normal-link" href="https://ourworldindata.org/urbanization#city-populations">many others</a>.) The
+  next question (this being a math post, after all) is how we might use an equation to model the shape of these curves.
+  What type of equation would both express the initial quasi-exponential growth of a population and the subsequent
+  tapering off as that population reached carrying capacity?
 </div>
 
   </main>

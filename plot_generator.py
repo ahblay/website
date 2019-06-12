@@ -101,4 +101,13 @@ def deltas_car():
     plt.tight_layout()
     plt.savefig('static/deltas_car.png', transparent=True)
 
-deltas_car()
+def simple_fish():
+    x = [1, 2 ,3, 4, 5, 6, 7]
+    y = [2, 4, 7, 11, 16, 19, 20]
+    plt.plot(x, y)
+    plt.ylabel('Goldfish')
+    plt.xlabel('Generation')
+    plt.tight_layout()
+    plt.savefig('static/simple_fish.png', transparent=True)
+
+simple_fish()
