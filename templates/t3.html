@@ -1,0 +1,163 @@
+{% extends "project_base.html" %}
+
+{% block data %}
+{% endblock %}
+
+{% block title %}
+Hmmm, really?
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/katex.min.css">
+{% endblock %}
+
+{% block ptitle %}Hmmm, really? A Misguided Attempt to Remember University Math by Doing GRE Problems{% endblock %}
+
+{% block content %}
+<div class="desc">
+  When you decide to apply to graduate programs for a Master's in Applied Math and you completed your protracted,
+  five-year undergrad two years ago, you must quickly come to terms with the fact that most of the theorems and proofs
+  you spent so many hours laboring over and (mis)understanding have entirely vanished from your consciousness. Some
+  might respond to this realization with an alarmed determination, and throw themselves heartily into such instructive
+  and thorough resources as Paul's Online Math notes, or perhaps [Committed Student A]'s Classroom Notes. However,
+  as a student who prided himself on his sketchy-at-best note-taking habit, I simply do not have this resource to fall
+  back on. But, no fear! I have an inventive shortcut. Why review entire courses when a lovely organization known fondly
+  as ETS has provided a list of example problems from all the subjects they consider to be necessary for an aspiring
+  graduate student to understand? Surely, a thorough explanation of each problem from the GRE practice booklet will
+  be just as instructive. (I pray). So this is that. And that is that. And here we go.
+
+  <div class="title-sm yellow">Problem 1</div>
+  <div class="math">\lim_{x \to 0} \frac{\cos(3x) - 1}{x^2}</div>
+  Right off the bat, we can feel discouraged that this isn't as simple as just setting <span class="math">x = 0</span>
+  and simplifying the expression. We're going to have to do some clever substitions to get that <span class="math">x</span>
+  out of the denominator. AHA! A cursory Google reveals some useful limits that may help us out.
+  <div class="math">
+    \lim_{x \to 0} \frac{\sin(\theta)}{\theta} = 1 \quad\mathrm{and}\quad \lim_{x \to 0} \frac{\cos(\theta) - 1}{\theta} = 0
+  </div>
+  What if we do a little algebra to get our original limit to look a little bit more like one of these?
+  <div class="math">\lim_{x \to 0} \frac{\cos(3x) - 1}{3x} \times \frac{3}{x}</div>
+  NOPE! SHIT. This isn't right. We forgot that this limit is <i>indeterminate</i>. And when limits are
+  <i>indeterminate</i>, we gotta apply L'Hospital's Rule. Google quickly summarizes L'Hospital's Rule as follows:
+  <div class="math">\text{If}\quad \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{0}{0} \quad\text{then}\quad \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}</div>
+  So now we must go about differentiating <span class="math">\cos(3x) - 1</span> and <span class="math">x^2</span>.
+  Recalling that the derivative of <span class="math">\cos(x)</span> is <span class="math">-\sin(x)</span> and
+  remembering to implement the product rule, this leaves us with
+  <div class="math">\lim_{x \to 0} \frac{-3\sin(3x)}{2x}.</div>
+  Let's <i>now</i> try to get this looking a bit more like expression (2). With some clever algebra, we are left with:
+  <div class="math">\lim_{x \to 0} \frac{\sin(3x)}{3x} \times \frac{-9}{2}.</div>
+  The first fraction simplifies to 1, and so we are left with the answer <span class="math">\boxed{\frac{-9}{2}.}</span>
+
+  <div class="title-sm yellow">Problem 2</div>
+  What is the area of an equilateral triangle whose inscribed circle has radius 2?
+  <br><br>
+  This question feels like it could be solved with ease if one knew (or could recall) more facts about inscribed circles
+  and equilateral triangles. Still, it's readily solvable without helpful facts, so let's do it that way. We'll begin by
+  creating a right triangle with angles 30˚, 60˚ and 90˚ and sides 2, x and y. It happens that 6 of these such triangles
+  will form our original equilateral triangle. (This isn't just random good fortune, obviously. Also, I understand a
+  diagram would be helpful, but it's too much work to figure out how to do that in KaTeX (not a typo; it's the package
+  I'm using to render LaTeX in the browser), so you can draw one if you want.) As such, we simply need to find the area
+  of this triangle, multiply it by 6, and we have our answer. We recall from high school (and Google) that 30-60-90
+  triangles have sides 1, 2 and <span class="math">\sqrt{3}.</span> In our case, this leaves us with sides 2, 4 and
+  <span class="math">2\sqrt{3}</span>. The area of this triangle is then:
+  <div class="math">\frac{1}{2} \times 2\sqrt{3} \times {2} = 2\sqrt{3}.</div>
+  Multiplying this result by 6 gives us the area of the original equilateral triangle:
+  <span class="math">\boxed{12\sqrt{3}}.</span>
+
+  <div class="title-sm yellow">Problem 3</div>
+  <div class="math">\int_{e^{-3}}^{e^{-2}} \frac{1}{x \log x} \, dx</div>
+  Oof. This one is a real doozy. Let's try to break it down into quasi-digestible pieces. We'll begin by finding the
+  definite integral. Once that's done, we can worry about evaluating the result. (Whether or not this is a prudent
+  or practical choice is very much an open question, but let's hope that at worst it is instructive.) Okay.
+  <br><br>
+  Recall that certain integrals can be solved using substitution. Specifically, the substitution technique works when
+  the integral to be evaluated takes the form <span class="math">\int f(g(x)) \, g'(x) \, dx</span>, and is summarized as
+  follows:
+  <div class="math">\int f(g(x))\, g'(x) \, dx = \int f(u) \, du \quad\text{where}\quad u = g(x).</div>
+  In our case, <span class="math">g(x) = \log(x)</span> and <span class="math">g'(x) = \frac{1}{x}.</span> (This
+  second fact may seem surprising if you've largely forgotten all of integral calculus, as I have. Don't stress it.
+  StackOverflow tells me it's true.) Proceeding with the substitution, we have <span class="math">u = \log(x)</span>
+  and <span class="math">du = \frac{1}{x} \, dx</span>. Then:
+  <div class="math">\int \frac{1}{x \log x} \, dx = \int \frac{1}{u} \, du \quad\text{where}\quad u = \log(x).</div>
+  Integrating the right-hand side and substituting back in for u, we are left with the expression:
+  <div class="math">\log(\log(x)).</div>
+  Now, we must evaluate this result at <span class="math">e^{-2}</span> and <span class="math">e^{-3}.</span> Doing so,
+  we have:
+  <div class="math">\log(\log(e^{-2})) - \log(\log(e^{-3})).</div>
+  Recalling (through the aid of Google) the properties of logarithms, we can make a series of simplifications:
+  <div class="math">
+    \begin{aligned}
+      \log(-2)) - \log(-3)) \\
+      \log\left(\frac{-2}{-3}\right) \\
+      \log\left(\frac{2}{3}\right)
+    \end{aligned}
+  </div>
+  This gives us the final result: <span class="math">\boxed{\log\left(\frac{2}{3}\right)}</span>.
+
+  <div class="title-sm yellow">Problem 4</div>
+  Let <span class="math">V</span> and <span class="math">W</span> be 4-dimensional subspaces of a 7-dimensional vector
+  space <span class="math">X</span>. Which of the following CANNOT be the dimension of the subspace
+  <span class="math">V \cap W</span>?
+  <br><br>
+  We're at a real risk of exposing how very little I actually know about linear algebra here. However (and fortunately),
+  this problem is actually rather simple with the appropriate tools. We need the following two facts about vector spaces
+  and subspaces:
+  <div class="math">\dim(V + W) = \dim(V) + \dim(W) - \dim(V \cap W)</div>
+  and
+  <div class="math">\dim(V + W) \leq \dim(X).</div>
+  We know that <span class="math">\dim(X) = 7</span>, so <span class="math">\dim(V + W) \leq 7</span>. Substituting this
+  result into equation (14), we have:
+  <div class="math">7 \geq \dim(V) + \dim(W) - \dim(V \cap W).</div>
+  Finally, plugging in values and solving for <span class="math">V \cap W</span>:
+  <div class="math">
+    \begin{aligned}
+      7 &\geq 4 + 4 - \dim(V \cap W) \\
+      -1 &\geq - \dim(V \cap W) \\
+      1 &\leq \dim(V \cap W).
+    \end{aligned}
+  </div>
+  We are left with the fact that the subspace <span class="math">V \cap W</span> must be greater than 0.
+
+  <div class="title-sm yellow">Problem 5</div>
+  Sofia and Tess will each randomly choose one of the 10 integers from 1 to 10. What is the probability that neither
+  integer chosen will be the square of the other?
+  <br><br>
+  Ah, combinatorics. This should be okay. Let's find the probability that one integer <i>will</i> be the square of the
+  other; then we can simply subtract that result from 1. First, how many possible choices are there? Both Sofia and Tess
+  have 10 integers to select from, so that leaves us with a total of <span class="math">10 \times 10 = 100</span>
+  combinations. The only numbers that are perfect squares are 1, 4 and 9. These can be selected in 5 unqiue ways:
+  <div class="math">(1, 1), \,\, (2, 4), \,\, (4, 2), \,\, (3, 9), \quad\text{and}\quad (9, 3).</div>
+  Therefore, there is a <span class="math">\frac{5}{100}</span> probability that one integer <i>will</i> be the square
+  of the other. This means that there is a <span class="math">1 - 0.05 = 0.95</span> probability that <i>neither</i>
+  integer is the square of the other.
+
+  <div class="title-sm yellow">Problem 6</div>
+  Which of the following shows the numbers <span class="math">2^\frac{1}{2}</span>,
+  <span class="math">3^\frac{1}{3}</span>, and <span class="math">6^\frac{1}{6}</span>in increasing order?
+  <br><br>
+  The trick here is to find a common exponent for these three numbers. <span class="math">2^\frac{1}{2}</span> can be
+  re-written as <span class="math">2^\frac{3}{6} = 8^\frac{1}{6}</span>. Similarly,
+  <span class="math">3^\frac{1}{3} = 3^\frac{2}{6} = 9^\frac{1}{6}.</span> Now, we can clearly see the order to be
+  <span class="math">\boxed{6^\frac{1}{6} \leq 2^\frac{1}{2} \leq 3^\frac{1}{3}}.</span>
+
+  <div class="title-sm yellow">Problem 7</div>
+  <img id="gre-curve" class="plot" src="../static/gre_curve.png">
+  The figure above shows the graph of the derivative <span class="math">f'</span> of a function
+  <span class="math">f</span>, where <span class="math">f</span> is continuous on the interval
+  <span class="math">[0, 4]</span> and differentiable on the interval <span class="math">(0, 4)</span>. What is the
+  proper ordering of the values <span class="math">f(0)</span>, <span class="math">f(2)</span> and
+  <span class="math">f(4)</span>?
+  <br><br>
+  This shouldn't be too tricky. (To editorialize, the truly tricky part of this problem was rendering a passable
+  depiction of the graph from the GRE practice booklet. Fortunately, it was relatively easy to identify the graph as a
+  piecewise function consisting of an ellipse and a circle. You'll be satisfied to hear that the above reproduction is
+  precisely identical to the original.) Let's consider the general behavior of <span class="math">f</span>. From
+  <span class="math">f'</span>, we can see that <span class="math">f</span> begins sloping upwards, gradually flattens
+  out, briefly slopes down, and then flattens out again. At <span class="math">f(0)</span>, this slope is positive, at
+  <span class="math">f(2)</span> it is zero, and at <span class="math">f(4)</span> it is also zero.
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/katex.min.js" type="text/javascript"></script>
+<script src="/static/math.js" type="text/javascript"></script>
+{% endblock %}

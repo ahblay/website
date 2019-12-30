@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 
 plt.rcParams['text.color'] = "white"
 plt.rcParams['axes.labelcolor'] = "white"
@@ -110,4 +111,21 @@ def simple_fish():
     plt.tight_layout()
     plt.savefig('static/simple_fish.png', transparent=True)
 
-simple_fish()
+def gre_curve():
+    def fun(x):
+        result = 0
+        if 0 <= x <= 2:
+            result = (3 / 2) * math.sqrt(4 - x**2)
+        if 2 < x <= 4:
+            result = -math.sqrt(1 - (x - 3)**2)
+        return result
+    vfun = np.vectorize(fun)
+    x = np.linspace(0, 4, 100)
+    y = vfun(x)
+    plt.plot(x, y)
+    plt.ylabel('y')
+    plt.xlabel('x')
+    plt.tight_layout()
+    plt.savefig('static/gre_curve.png', transparent=True)
+
+gre_curve()

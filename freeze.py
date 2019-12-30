@@ -14,6 +14,7 @@ def projects():
     yield {'page_name': 'r1'}
     yield {'page_name': 't1'}
     yield {'page_name': 't2'}
+    yield {'page_name': 't3'}
 
 if __name__ == '__main__':
     freezer.freeze()

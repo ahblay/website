@@ -110,7 +110,20 @@ Dynamical Systems
   The issue here is that this equation will produce larger and larger outputs generation after generation. There
   is nothing to slow it down. What can we do to fix this?
   <br><br>
-  
+  Let's begin by supposing that the population will tail off at some known value <span class="math">M</span>. We shall
+  refer to this value as the "carrying capacity." We want to find some way to curb the population growth as it trends
+  nearer to <span class="math">M</span>. In other words, we want to do something to the exponential growth term
+  <span class="math">rP_t</span> that causes it to decrease as <span class="math">P_t</span> approaches
+  <span class="math">M</span>. One such approach would be to multiply <span class="math">rP_t</span> by some expression
+  that gets smaller and smaller as the value of <span class="math">P_t</span> nears that of <span class="math">M</span>.
+  Here's what that expression might look like:
+  <div class="math">1 - \frac{P_t}{M}.</div>
+  We can see that as <span class="math">P_t</span> becomes larger, the ratio <span class="math">\frac{P_t}{M}</span>
+  approaches 1, and the overall expression approaches 0. Furthermore, if the current population is larger than the
+  carrying capacity, the ratio will be greater than 1, and the expression becomes negative. This means that if our population
+  is overcrowded, our model will account for this fact and cause the population size to diminish. Let's put all of these
+  ideas together:
+  <div class="math">P_{t+1} = P_t + rP_t \left( 1 - \frac{P_t}{M} \right).</div>
 </div>
 
   </main>
