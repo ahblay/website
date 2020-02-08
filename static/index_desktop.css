@@ -18,14 +18,14 @@
 
 .projects {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
 }
 
 .title {
     Font-Family: 'Playfair Display', Serif;
-    font-size: 70px;
+    font-size: 60px;
     font-weight: bold;
     padding-top: 20px;
     color: #ffda6a;
@@ -34,7 +34,7 @@
 
 .title-md {
     Font-Family: 'Playfair Display', Serif;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     text-align: left;
     margin-top: 30px;
@@ -43,7 +43,7 @@
 
 .title-sm {
     Font-Family: 'Playfair Display', Serif;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     text-align: left;
     margin-top: 30px;
@@ -52,7 +52,7 @@
 
 .desc {
     Font-Family: 'Source Sans Pro', Sans-Serif;
-    font-size: 17px;
+    font-size: 16px;
     color: white;
 }
 
@@ -60,7 +60,7 @@
     Font-Family: 'Playfair Display', Serif;
     margin: 10px;
     text-align: center;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 500;
     color: white;
 }

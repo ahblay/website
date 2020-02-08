@@ -3,6 +3,7 @@ from app import app
 
 freezer = Freezer(app)
 
+
 @freezer.register_generator
 def projects():
     yield {'page_name': 'j1'}

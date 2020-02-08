@@ -19,6 +19,7 @@
   </header>
   <main>
     <div class="desc">
+      <!--
       Welcome to this website. On it you will find some of my programming and math projects, and some strange pieces of
       writing that I've done over the years. If the creative genius of the writing fails to attract you, please refrain
       from judgment, as doing so will crush my fragile ego. As time moves on and we march steadily towards Earth's
@@ -29,6 +30,10 @@
       future with some shades of optimism. Above all, however, this site seves as a marketing tool, so if you like my
       work and need to hire a programmer/math guy who's concerned about the current state of the earth, please reach
       out.
+      -->
+      Welcome to this website. On it you'll find some examples of my programming work, some mathematical writing, a
+      couple mathematical tutorials, and one or two brief (and odd) pieces of writing. If you have any questions, please
+      feel free to contact me on LinkedIn.
     </div>
 
     <br><br>
@@ -40,8 +45,8 @@
       <a href="https://github.com/ahblay" id="github" class="project border-yellow">
         <div class="p-title">GitHub</div>
       </a>
-      <a href="https://www.kaggle.com/ahblay" id="kaggle" class="project border-yellow">
-        <div class="p-title">Kaggle</div>
+      <a href="https://www.linkedin.com/in/abel-romer/" id="kaggle" class="project border-yellow">
+        <div class="p-title">LinkedIn</div>
       </a>
     </div>
 
@@ -136,6 +141,39 @@
     <div class="divider1"></div>
 
     <div class="desc">
+      You've probably heard this before from the computer programmer/mathematical/analytically-minded set, but my
+      goodness, do I enjoy solving problems.
+      <br><br>
+      I suppose it started pretty early, with an obsessive interest in children's puzzle books, Snap Circuits and
+      electronic and engineering kits. I remember (oh, the nerdiness of it!) asking my parents to write algebra problems
+      on paper napkins at restaurants so I could exhibit my burgeoning mathematical prowess (as I saw it). My
+      grandfather is an electrical engineer, and we would always share little mathematical puzzles with each other.
+      [A lovely example of one such problem: What is the sum of all the individual digits used when writing down every
+      number from 1 to 1,000,000?]
+      <br><br>
+      In university, these analytical tendencies drove me to study mathematics and eventually to a semester abroad in
+      Hungary with the Budapest Semesters in Mathematics program, which I found to be equal parts challenging and
+      rewarding. My studies culminated in a deep dive mathematical exploration of the children's game of Dots-and-Boxes,
+      a game whose analysis requires orders of magnitude more computational power than chess. It was my struggle with
+      this problem that motivated my decision to learn more deeply about computer programming and software development.
+      <br><br>
+      After graduating from university, I spent the better half of a year simultaneously learning web development and
+      designing a web application intended to solve the scheduling challenges faced by restaurants and other mid-sized
+      businesses. This application used linear programming to automatically optimize the scheduling process, and
+      rendered the resultant schedule to HTML. Admittedly, as this project's development ran concurrent with my
+      learning of software technologies, its first iteration contained a good deal of bugs and errors. However, this
+      initial foray taught me how to effectively design and create robust full-stack web applications, and a
+      beta-version of the scheduler is currently in the pipeline. This edition is structured as an API with a simple
+      frontend that allows users to upload their schedule data as a CSV file. The data is parsed into JSON and loaded
+      into a PostgreSQL database, where it is available for processing into a schedule (using PuLP), and subsequent
+      rendering back to CSV, where it can be loaded into Excel and edited by a user. This construction, in keeping with
+      the REST design approach, is much more modular and greatly simplifies the task of writing unit tests.
+      <br><br>
+      I am currently working as a freelance web developer and math tutor in Vancouver, BC. If you have any questions,
+      please feel free to contact me on LinkedIn:
+      <a class="normal-link" href="https://www.linkedin.com/in/abel-romer/">https://www.linkedin.com/in/abel-romer/</a>.
+      <br><br>
+      <!--
       Ah, I see you want more information about me. Well, here it is. Please don't use it nefariously.
       <br><br>
       I am a programmer and math tutor living in Vancouver, BC. I studied at Quest University Canada in Squamish, where
@@ -149,6 +187,7 @@
       <br><br>
       I find there's a lot to be learned from exploring the hidden intricacies of things.
       <br><br>
+      -->
       You can find my additional projects on GitHub at
       <a class="normal-link" href="https://github.com/ahblay">https://github.com/ahblay</a>
       and Kaggle at <a class="normal-link" href="https://www.kaggle.com/ahblay">https://www.kaggle.com/ahblay</a>.
@@ -164,11 +203,38 @@
       </a>.
     </div>
 
+    <!--
+    <div class="space"></div>
+
+    <div class="title-md yellow">CONTACT</div>
+
+    <div class="divider1"></div>
+
+    <form class="email-form desc" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <div hidden aria-hidden="true">
+        <label>
+          Don’t fill this out if you're human:
+          <input name="bot-field" />
+        </label>
+      </div>
+      <label for="subject">Subject:</label>
+      <input type="text" name="subject" placeholder=""  id="subject" required />
+      <br><br>
+      <label for="email">Email:</label>
+      <input type="email" name="email" placeholder="Email"  id="email" required />
+      <br><br>
+      <label for="content">Message:</label>
+      <input type="text" name="content" placeholder=""  id="content" required />
+      <br><br>
+      <button type="submit">Subscribe</button>
+    </form>
+    -->
+
   </main>
   <footer>
     <div class="footer"></div>
     <br><br>
-    <small>Copyright &copy; 2018 Abel Romer</small>
+    <small>Copyright &copy; 2020 Abel Romer</small>
   </footer>
 </body>
 <script

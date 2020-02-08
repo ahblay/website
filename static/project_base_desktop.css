@@ -18,7 +18,7 @@
 
 .title {
     Font-Family: 'Playfair Display', Serif;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     padding-top: 20px;
     color: #ffda6a;
@@ -27,6 +27,6 @@
 
 .desc {
     Font-Family: 'Source Sans Pro', Sans-Serif;
-    font-size: 17px;
+    font-size: 16px;
     color: white;
 }
