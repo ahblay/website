@@ -1,0 +1,96 @@
+{% extends "project_base.html" %}
+
+{% block data %}
+{% endblock %}
+
+{% block title %}
+Scheduling API
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/katex.min.css">
+{% endblock %}
+
+{% block ptitle %}Scheduling API{% endblock %}
+
+{% block content %}
+<div class="desc">
+  This is a summary of my effort (in collaboration with others) to build a web-based application designed to automate
+  the employee scheduling process in small businesses using linear programming. This project can be roughly divided into
+  two sections: the initial foray (where we just dove in with essentially zero web development experience and tackled
+  issues as they surfaced) and the reboot (where everything was scrapped and redesigned with intent, knowledge and
+  increased awareness). I believe that both these steps were necessary and were no doubt instructive. However, if you
+  choose to read this as a tutorial (which it does not intend to be), I would recommend that any takeaways you have come
+  from the second section.
+  <div class="title-sm yellow">The Initial Foray</div>
+  The impetus for this project came from the research of my former classmate Aaron Slobodin, who wrote
+  <a class="normal-link" href="https://www.math.uvic.ca/~aslobodin/scheduling.pdf">this paper</a> on a linear
+  programming solution to the employee scheduling problem. Along with his classmate Will Bernoudy, Aaron designed and
+  built a desktop application for employee scheduling using the Python library Kivy. Shortly after this application was
+  deployed at a health clinic in the summer of 2017, my friend Andrew Laird and I spoke to Aaron and Will about
+  upgrading the scheduler to an online, web-based service. That service is the topic of this article.
+  <br><br>
+  When we began the project of designing and implementing a web app, both Andrew and I had relatively little knowledge
+  of web development technologies. Especially for me, nearly every task introduced entirely foreign concepts, syntactic
+  difficulties and complex design challenges. However, rather than walk through every step of the project, in the
+  following paragraphs I will select what I recall to be particularly representative examples of the struggles and
+  successes that we encountered along the way.
+  <br><br>
+  Perhaps the single most irritating, infuriating and time-consuming task I faced during the web design phase of this
+  project was building a calendar interface that users could use to build schedules. Questions associated with this step
+  were wide-ranging in scope and depth. They included:
+  <ul>
+    <li>
+      How do design a calendar? How do you show a schedule that spans two months? How big is too big? How do you show
+      exactly how many days you want without a bunch of empty ones?
+    </li>
+    <li>
+      How do you enter data into the calendar? How do you visualize that data? How much flexibility do you make
+      available to the user? Can a user color-code entries? What colors can they choose from?
+    </li>
+    <li>
+      How do you make sure that your user won't break the schedule? What do you do when the user inevitably <i>does</i>
+      break the schedule?
+    </li>
+    <li>
+      How do you make schedule-design as tolerable and easy as possible?
+    </li>
+    <li>
+      How do you preserve calendar data in a database and quickly render it back into a calendar? When do you save
+      changes made by a user? How do you make that process as smooth as possible?
+    </li>
+  </ul>
+  Let's begin with the design we ultimately settled on. Here's a screenshot of an example schedule:
+  <img id="schedule-calendar" class="photo" src="../static/schedule_calendar.png">
+  <div id="schedule-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-content">
+  </div>
+  Glazing over the fact that this schedule doesn't entirely make sense in the real world, I believe that its design
+  largely <i>does</i> address all of the above questions. Let's get into it.
+  <br><br>
+  It seems that the issue of a schedule spanning multiple months really isn't that significant. By providing the schedule
+  dates at the top of the calendar and in each calendar cell, I believe that it is adequately clear to a user which month
+  they are in. Size, however, was a continual source of frustration. The number of shifts per day is practically
+  always larger than the space available in a calendar cell. The natural solution to this problem is to enable scrolling
+  in calendar cells; this is what we ultimately settled on. However, I was never totally sold on this choice. My fear is
+  that users will forget that the hidden shifts have been entered and subsequently create schedules that have extra or
+  otherwise unexpected shifts. This seems to be a fundamental difficulty with UX design. When building interfaces, you
+  have to remember that there is a line beyond which it is no longer your responsibility to prevent poor decisions.
+  The challenge is to decide where to draw that line.
+  <br><br>
+  Building the calendar to a user-specified length was annoying, albeit mostly due to my relative inexperience re: web
+  development at that point. If you want to create a calendar of known length, one simple approach is to subdivide your
+  webpage into a grid using CSS. Then, you simply style each cell in your grid with borders and a date and whatever else
+  you want in your calendar. Rinse and repeat for <span class="math">7 \times 5 = 35</span> cells and you have a calendar
+  of appropriate length for any month. However, if your calendar can be any length, you can't pre-set the number of rows
+  to, say, 5. The solution, which is retrospectively quite clear, is to use Javascript (or in out case, JQuery) to build
+  each calendar row incrementally until we reach the correct size. 
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/katex.min.js" type="text/javascript"></script>
+<script src="/static/modal.js" type="text/javascript"></script>
+<script src="/static/math.js" type="text/javascript"></script>
+{% endblock %}
