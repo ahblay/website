@@ -62,7 +62,7 @@ Scheduling API
   </ul>
   Let's begin with the design we ultimately settled on. Here's a screenshot of an example schedule:
   <img id="schedule-calendar" class="photo" src="../static/schedule_calendar.png">
-  <div id="schedule-modal" class="modal">
+  <div id="schedule-calendar-modal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modal-content">
   </div>
@@ -85,7 +85,7 @@ Scheduling API
   you want in your calendar. Rinse and repeat for <span class="math">7 \times 5 = 35</span> cells and you have a calendar
   of appropriate length for any month. However, if your calendar can be any length, you can't pre-set the number of rows
   to, say, 5. The solution, which is retrospectively quite clear, is to use Javascript (or in out case, JQuery) to build
-  each calendar row incrementally until we reach the correct size. 
+  each calendar row incrementally until we reach the correct size.
 </div>
 {% endblock %}
 
