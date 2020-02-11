@@ -50,8 +50,6 @@ main {
 
 .photo {
     display: block;
-    width: 70%;
-    height: auto;
     margin: 25px auto 25px auto;
     border-radius: 3px;
     cursor: pointer;
@@ -74,7 +72,6 @@ main {
 .modal-content {
   margin: auto;
   display: block;
-  width: 100%;
   max-width: 1200px;
   border-radius: 3px;
 }
@@ -93,6 +90,13 @@ main {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
+}
+
+pre code {
+  background-color: #666;
+  border: 1px solid #eee;
+  display: block;
+  width: auto;
 }
 
 table {

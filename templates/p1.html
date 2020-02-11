@@ -22,6 +22,10 @@ Scheduling API
   increased awareness). I believe that both these steps were necessary and were no doubt instructive. However, if you
   choose to read this as a tutorial (which it does not intend to be), I would recommend that any takeaways you have come
   from the second section.
+  <br><br>
+  All of the code for the inital foray can be found on GitHub at
+  <a class="normal-link" href="https://github.com/ahblay/webssapp">https://github.com/ahblay/webssapp</a>. The code for
+  the reboot is set to private on the off-chance that this becomes a viable business.
   <div class="title-sm yellow">The Initial Foray</div>
   The impetus for this project came from the research of my former classmate Aaron Slobodin, who wrote
   <a class="normal-link" href="https://www.math.uvic.ca/~aslobodin/scheduling.pdf">this paper</a> on a linear
@@ -61,10 +65,10 @@ Scheduling API
     </li>
   </ul>
   Let's begin with the design we ultimately settled on. Here's a screenshot of an example schedule:
-  <img id="schedule-calendar" class="photo" src="../static/schedule_calendar.png">
+  <img id="schedule-calendar" class="photo" src="../static/schedule_calendar.png" width="70%">
   <div id="schedule-calendar-modal" class="modal">
     <span class="close">&times;</span>
-    <img class="modal-content">
+    <img class="modal-content" width="100%">
   </div>
   Glazing over the fact that this schedule doesn't entirely make sense in the real world, I believe that its design
   largely <i>does</i> address all of the above questions. Let's get into it.
@@ -87,15 +91,99 @@ Scheduling API
   to, say, 5. The solution, which is retrospectively quite clear, is to use Javascript (or in our case, JQuery) to build
   each calendar row incrementally until we reach the correct size. This is what I did. However, each calendar cell
   contains quite a lot of HTML and CSS, and at the time all of this structural code was embedded and created within
-  JQuery. It is worth asking whether there is a more elegant (i.e. readable) solution.
+  JQuery. It is, perhaps, worth asking whether there is a more elegant (i.e. readable) solution.
   <br><br>
   So what exactly is all the HTML and CSS inside of each calendar cell? How is data entered into the calendar? Included
   below is a screenshot of the shift entry modal:
-  <img id="shift-entry" class="photo" src="../static/shift_entry.png">
+  <img id="shift-entry" class="photo" src="../static/shift_entry.png" width="70%">
   <div id="shift-entry-modal" class="modal">
     <span class="close">&times;</span>
-    <img class="modal-content">
+    <img class="modal-content" width="100%">
   </div>
+  These are the options:
+  <ul>
+    <li>A role dropdown menu with user-created roles from the roles tab (elsewhere on the site).</li>
+    <li>The number of employees in a given role and shift (set to an arbitrary maximum of 9).</li>
+    <li>Start and end time dropdowns.</li>
+    <li>Buttons and dropdowns to select recurring shifts (including a facetious "if the day has 6 letters" option).</li>
+    <li>A miniature calendar with clickable days to select when shifts should occur.</li>
+  </ul>
+  Upon selecting "Save" , the shifts are drawn onto the calendar. The colors associated with each role can be picked
+  from the roles tab. (Initially, I gave users the option to select any color they wanted from a color wheel. However,
+  this choice led to some particularly abhorrent color palettes, something that I felt keen to avoid. In the end, I
+  decided to offer colors for a carefully curated selection.) Shifts that have been drawn onto the calendar remain
+  editable from a pop-up menu that appears when they are clicked (see below).
+  <img id="shift-edit" class="photo" src="../static/shift_edit.png" width="30%">
+  <div id="shift-edit-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" width="40%">
+  </div>
+  In all the menus for shift creation and editing, we (very intentionally) ensured that users were only able to add
+  information that already existed elsewhere on the site. This was essential to avoid a circumstance where, for instance,
+  a user creates a new role (say "interior decorator") for one of their shifts, but fails to associate any employees
+  with that role (since the role of "interior decorator" only appears in the calendar). Unfortunately, even with such
+  precautions, there are ways to design impossible schedules. As a simple example, suppose you run a cafe and have
+  employees filling the roles of barista and dishwasher. At your cafe (a quaint neighborhood establishment), you have
+  three baristas (Mandy, Kaylin and Joe) and one dishwasher (Larry). Now, when setting up your schedule in the calendar
+  view, it would be possible to create a dishwasher shift that requires two employees, even though Larry is your only
+  (fiercely territorial) dishwasher. As such, you have created an impossible schedule. To notify users of this situation
+  (or, technically speaking, when your schedule data violates a constraint (in this case, we are violating the
+  "employees can only work one shift at a time" constraint)), we built an errors tab; this allows users to fix
+  impossible schedules before attemping to optimize them. The errors page is shown below:
+  <img id="schedule-errors" class="photo" src="../static/schedule_errors.png" width="70%">
+  <div id="schedule-errors-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" width="100%">
+  </div>
+  It is perhaps overdue that I present an overview of how this entire schedule creation process works. Let's do that now.
+  <div class="title-sm yellow">The Overview</div>
+  <ol>
+    <li>
+      Create an account. Your account is associated with a business.
+    </li>
+    <li>
+      Add roles. These are the roles that your business requires (e.g. dishwasher, server, etc.).
+    </li>
+    <li>
+      Add employees. Each employee has the following information: name, training (y/n), roles, minimum shifts (per week),
+      maximum shifts (per week), seniority, and inactive (y/n).
+    </li>
+    <li>
+      Create a schedule. Select a date range for your schedule and input the shifts that you require for each of the
+      days. Enter (or request your employees to enter) their work preferences for each eligible role, day and shift.
+    </li>
+    <li>Optimize your schedule. Make any necessary changes.</li>
+  </ol>
+  Steps 1 through 4 are, broadly speaking, front-end web development tasks. We've addressed them through the
+  representative lens of step 4. Let's now take a moment to expand upon step 5.
+  <br><br>
+  The basic idea (which is presented in greater detail with better mathematical justification in
+  <a class="normal-link" href="https://www.math.uvic.ca/~aslobodin/scheduling.pdf">the paper I linked at the beginning
+    of this article</a>) is to reformulate a schedule as a linear equation and solve this linear equation for the
+  highest (or lowest) value whilst being restricted by certain constraints. In our case, the linear equation will look
+  something like this:
+  <div class="math">
+    \text{score} = a_1x_1 + a_2x_2 + a_3x_3 + ... + a_nx_n.
+  </div>
+  Here, <span class="math">x_i</span> is a variable representing a unique combination of an employee working on a certain
+  day in a certain role in a certain shift. For example, this could be Larry working on Monday as a dishwasher from 8AM
+  to 4PM. This variable will be assigned a value of 1 if Larry is working and 0 if he is not. The value
+  <span class="math">a_i</span> represents Larry's preference to work that specific role/day/shift combination. This means
+  that the number of terms in our equation will be the product:
+  <div class="math">n_{\text{employees}} \times n_{\text{roles}} \times n_{\text{days}} \times n_{\text{shifts}}.</div>
+  Now, in order to solve this equation we do not immediately begin iterating over all possible combinations of 1s and 0s
+  for these variables. Recall that there are certain impossible (constraint-breaking) combinations (e.g. Larry working
+  two shifts at once). Each of these constraints must be described programmatically. As an example, "employees can only
+  work one shift at a time" can be written (in high-level pseudocode):
+  <pre>
+    <code>
+      for every employee/day/shift combination:
+        sum = 0
+        for every role:
+          sum += employee/day/shift/role
+        sum <= 1
+    </code>
+  </pre>
 </div>
 {% endblock %}
 
