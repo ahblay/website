@@ -64,7 +64,7 @@ Scheduling API
   <img id="schedule-calendar" class="photo" src="../static/schedule_calendar.png">
   <div id="schedule-calendar-modal" class="modal">
     <span class="close">&times;</span>
-    <img class="modal-content" id="modal-content">
+    <img class="modal-content">
   </div>
   Glazing over the fact that this schedule doesn't entirely make sense in the real world, I believe that its design
   largely <i>does</i> address all of the above questions. Let's get into it.
@@ -84,8 +84,18 @@ Scheduling API
   webpage into a grid using CSS. Then, you simply style each cell in your grid with borders and a date and whatever else
   you want in your calendar. Rinse and repeat for <span class="math">7 \times 5 = 35</span> cells and you have a calendar
   of appropriate length for any month. However, if your calendar can be any length, you can't pre-set the number of rows
-  to, say, 5. The solution, which is retrospectively quite clear, is to use Javascript (or in out case, JQuery) to build
-  each calendar row incrementally until we reach the correct size.
+  to, say, 5. The solution, which is retrospectively quite clear, is to use Javascript (or in our case, JQuery) to build
+  each calendar row incrementally until we reach the correct size. This is what I did. However, each calendar cell
+  contains quite a lot of HTML and CSS, and at the time all of this structural code was embedded and created within
+  JQuery. It is worth asking whether there is a more elegant (i.e. readable) solution.
+  <br><br>
+  So what exactly is all the HTML and CSS inside of each calendar cell? How is data entered into the calendar? Included
+  below is a screenshot of the shift entry modal:
+  <img id="shift-entry" class="photo" src="../static/shift_entry.png">
+  <div id="shift-entry-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content">
+  </div>
 </div>
 {% endblock %}
 
