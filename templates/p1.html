@@ -181,9 +181,102 @@ Scheduling API
         sum = 0
         for every role:
           sum += employee/day/shift/role
-        sum <= 1
+        sum must be <= 1
     </code>
   </pre>
+  In actuality, this process is completed in the Python library PuLP. This library is designed for solving this type of
+  linear optimization problem, and is equipped with algorithms to efficiently determine the ideal arrangement of 1s and 0s
+  in our linear equation (also called an objective function). This is what the constraint "correct number of employees per
+  shift on a weekend day" looks like in practice:
+  <pre>
+    <code>
+      for role, day, shift in self.product_range(self.num_roles,
+                                                 self.num_weekend_days,
+                                                 self.weekend_shifts):
+          schedule_model += lpSum(x[weekend_matrix[shift][day][role][employee]]
+                              for employee in self.num_emps) == self.weekend_shift_need[shift][role]
+    </code>
+  </pre>
+  The rest of the code from this example can be found
+  <a class="normal-link" href="https://github.com/ahblay/personal_website/blob/master/server/algorithm.py">here</a>.
+  <br><br>
+  When a user enters all their schedule data in steps 1-4, that data is processed, organized and stored in a database.
+  In the first iteration of the scheduling software, we used MongoDB, a NoSQL database where data is stored in what
+  are essentially nested dictionaries. While this was largely effective, querying the database could at times be difficult;
+  entries that were nested within other entries required a lot of information to uncover. In the subsequent revamp, we
+  switched to PostgreSQL (a relational database model).
+  <br><br>
+  When a user clicks the "Optimize Schedule" button, the data associated with that schedule is queried from the database
+  and sent to the scheduling algorithm. The data contains the following information:
+  <ul>
+    <li>
+      All the shifts to fill in the upcoming schedule. This includes information about the number of employees required
+      for each shift, the roles required for each shift, and each shift's start and end times.
+    </li>
+    <li>
+      All of the employees associated with the business. This includes data about each employee, including training and
+      availability.
+    </li>
+    <li>
+      All of the roles associated with the business.
+    </li>
+    <li>
+      The duration of the schedule (as a list of days).
+    </li>
+    <li>
+      The preferences of each employee for working each shift.
+    </li>
+  </ul>
+  In the scheduler, this data is parsed into the objection function variables (see equation (1) and
+  <a class="normal-link" href="https://github.com/ahblay/personal_website/blob/master/server/algorithm.py">this example</a>).
+  The preference values are tied to their associated variables. Then an algorithm (called "branch and bound")
+  efficiently checks all possible inputs for the objective function and returns the set that provides the largest
+  overall preference score. In this sense, the schedule has been optimized according to employee preferences. Finally,
+  the set of 1s used in the optimal solution to the objective function are mapped back onto their variables, and those
+  variables (which, recall, represent a employee working a specific role on a specific day in a specific shift) are
+  converted into a final schedule. This schedule is stored in the database and rendered for the user as HTML.
+  <div class="title-sm yellow">The Reboot</div>
+  Yes, we did rewrite everything. This was done for a myriad of reasons:
+  <ul>
+    <li>
+      The code was sloppy and difficult to edit.
+    </li>
+    <li>
+      The database was causing frustration.
+    </li>
+    <li>
+      Writing unit tests was hard with no framework in place to write them.
+    </li>
+    <li>
+      There wasn't enough modularity.
+    </li>
+    <li>
+      The minimum viable product does not include a fancy front-end.
+    </li>
+  </ul>
+  These changes were mostly structural. The second iteration was built as a RESTful API; each endpoint in Flask is designed
+  explicitly to GET, POST, DELETE or PUT data in the database. This framework makes writing unit tests easy, as each
+  unit test maps directly to a certain type of view function in Flask. We switched to a relational database design and
+  used an ORM (SQLAlchemy) to access the data. We explicitly created separate development and deployment databases so
+  changes could be made while the software was in use. The front-end makes requests to the API, so any changes to the
+  front-end do not affect the back-end scheduling processes. For the sake of concision, here's a list of tangible
+  improvements we made from version one to version two:
+  <ul>
+    <li>MongoDB &rarr; PostgreSQL</li>
+    <li>Enmeshed front-end and back-end &rarr; RESTful API with distinct front-end</li>
+    <li>No unit tests &rarr; easy unit test framework</li>
+    <li>Direct DB calls &rarr; DB calls through ORM</li>
+    <li>Strong focus on (quasi-)flexible front-end design &rarr; schedule data input as CSV (simpler MVP)</li>
+  </ul>
+  Though this second iteration is not without its share of challenges (thinking in relational database terms is uniquely
+  difficult when so many tables relate to each other), its simpler and more modular framework certainly provide greater
+  flexibility and more room to grow.
+  <br><br>
+  <strong class="yellow">Author's Note:</strong> I'm going to end the discussion here. Although there is obviously a lot left
+  unsaid about this project, I feel that this article presents a reasonable high-level overview of our struggles and
+  successes. As I continue to work on the second (API) version of this software, I will add to this article. I may even
+  go so far as to provide in-depth descriptions of the various components of the software. As it stands, if you have any
+  questions, please don't hesitate to contact me.
 </div>
 {% endblock %}
 
