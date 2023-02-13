@@ -13,6 +13,7 @@ Dynamical Systems
   <link rel="stylesheet" media="screen and (min-width: 701px)" href="/static/project_base_desktop.css">
   <link rel="stylesheet" href="/static/project_base.css">
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Source+Sans+Pro" rel="stylesheet">
+  <link rel="shortcut icon" href="/static/favicon.ico">
   
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/katex.min.css">
 
@@ -124,6 +125,81 @@ Dynamical Systems
   is overcrowded, our model will account for this fact and cause the population size to diminish. Let's put all of these
   ideas together:
   <div class="math">P_{t+1} = P_t + rP_t \left( 1 - \frac{P_t}{M} \right).</div>
+  Does this equation achieve our goal of modelling an S-curve? Let's suppose that the carrying capacity is
+  <span class="math">M=20</span>, that <span class="math">30\%</span> of our population breeds each generation
+  (<span class="math">r=0.5</span>), and that we start with a population of size 2. This gives:
+  <div class="math">P_{t+1} = P_t + 0.3P_t \left( 1 - \frac{P_t}{20} \right), \; P_0=2.</div>
+  What are the dynamics of our population? Does our model work?
+  <img id="log-map-example" class="plot" src="../static/log_map_example.png">
+  It certainly seems to! The plot above exhibits the behavior that we are looking for. Our population initially grows at
+  a relatively slow rate, speeds up as it gains more individuals, and then tapers off as it approaches carrying capacity.
+  This essentially checks all of our boxes.
+  <br><br>
+  Let's see if we can clean up our model without adversely affecting its behavior. In particular, instead of calculating the
+  population size <span class="math">P_t</span>, let us simply determine the population as some percentage of the carrying
+  capacity, which we shall refer to as <span class="math">x_t</span>. In other words, let
+  <div class="math">x_t = \frac{P_t}{M}.</div>
+  Solving for <span class="math">P_t</span> and plugging the resulting expression in equation (4) gives:
+  <div class="math">x_{t+1} = x_t + rx_t(1-x_t).</div>
+  This has the effect of normalizing the population size. (That is to say, it squishes the population down to a range of
+  values between 0 and 1.) The resulting plot is shown below:
+  <img id="log-map-example-2" class="plot" src="../static/log_map_example_2.png">
+  Okay, sweet. We've managed to develop in equation (7) a reasonably good model for goldfish populations in ponds.
+  What can we actually do with it?
+  <div class="title-sm yellow">Some Analysis</div>
+  One natural question we might ask is, "What is the rate of growth of our population at some time
+  <span class="math">t</span>?" To situate this in a somewhat more believable context, imagine that we've developed a
+  model for the population of New York City (this is assuming that the population dynamics of huge metropolitan areas
+  directly parallel that of fish in a pond, which is dubious at best), and we wish to predict the rate of growth in the
+  year 2050. It would be convenient to have an equation that allows us to do this. What might this equation look like?
+  <br><br>
+  Since equation (7) provides population as a percentage of carrying capacity <span class="math">x_t</span> at discrete
+  time-steps <span class="math">t</span>, the best growth rate we can hope for is given by the change in population between
+  time-steps <span class="math">t</span> and <span class="math">t+1</span>. Graphically, this amounts to determining the slope
+  of the line between <span class="math">t</span> and <span class="math">t+1</span>. Using point-slope form, this is given by:
+  <div class="math">\frac{x_{t+1} - x_t}{t+1 - t} = x_{t+1} - x_t.</div>
+  Note that rearranging equation (7) gives <span class="math">x_{t+1} - x_t = rx_t(1-x_t)</span>. Therefore, we have the
+  following equation for the growth rate of the population between time-steps <span class="math">t</span> and
+  <span class="math">t+1</span>:
+  <div class="math">\frac{x_{t+1} - x_t}{t+1 - t} = rx_t(1-x_t).</div>
+  Describing this in (admittedly verbose) English, we might say that "the rate of change of the population between
+  time-steps <span class="math">t</span> and <span class="math">t+1</span> is a function of the size of the population
+  at time <span class="math">t</span>." If you are familiar with the language of calculus, this may sound suspiciously
+  similar to the definition of the derivative.
+  <div class="title-sm yellow">From Discrete to Continuous</div>
+  At this point, it is helpful to make a small shift in notation. Until now, we have used the variable
+  <span class="math">x_t</span> to refer to the population size at time <span class="math">t</span>. This is because our
+  function for population was defined recursively, and it is conventional for recursive functions to use subscripts.
+  However, it is equivalently correct to use function notation for the population size. Making this notational edit to
+  equation (9), we obtain:
+  <div class="math">\frac{x(t+1) - x(t)}{t+1 - t} = rx(t)(1-x(t)).</div>
+  Recall that the function <span class="math">x(t)</span> is still the same recursive function described in equation (7).
+  In particular:
+  <div class="math">x(t) = x(t-1) + rx(t-1)(1-x(t-1)).</div>
+  So far, nothing has changed apart from notation.
+  <br><br>
+  However, it is worth asking what might happen if <span class="math">x(t)</span> were some other function. Specifically,
+  what if <span class="math">x(t)</span> were continuous for all inputs <span class="math">t</span>, rather than recursively
+  defined for discrete time-steps? What would such a function look like? Ideally, it would model the same S-curve behavior
+  as our recursive function, but simply smoothed out for all possible times <span class="math">t</span>.
+  <br><br>
+  Let's suppose that <span class="math">x(t)</span> is continuous, and see what happens. Since <span class="math">x(t)</span>
+  is continuous, it now makes sense to determine the growth rate over an interval of less than one time-step. Let's
+  re-write equation (10) to describe the growth rate over the interval between <span class="math">t</span> and
+  <span class="math">t+ \Delta t</span>:
+  <div class="math">\frac{x(t+\Delta t) - x(t)}{\Delta t} = rx(t)(1-x(t)).</div>
+  In fact, there's really no reason to limit ourselves to an interval. It would be even better to simply determine the
+  instantaneous growth rate at time <span class="math">t</span>. We can obtain this by taking the limit as
+  <span class="math">\Delta t</span> approaches zero:
+  <div class="math">\lim_{\Delta t \to 0} \frac{x(t+\Delta t) - x(t)}{\Delta t} = rx(t)(1-x(t)).</div>
+  Recall that the right-hand side of the above equation is precisely the derivative of <span class="math">x(t)</span>,
+  which we may write as <span class="math">x'(t)</span> (see
+  <a class="normal-link" href="https://www.abelromer.com/t1">the thing I wrote about calculus</a>). Therefore, we have:
+  <div class="math">x'(t) = rx(t)(1-x(t)).</div>
+  What does this mean? It says that the continuous version of our recursive population function (equation (7)) is the
+  function <span class="math">x(t)</span> whose derivative is equal to <span class="math">rx(t)(1-x(t))</span>. How to we
+  figure out what this function is?
+  <div class="title-sm yellow">Differential Equations</div>
 </div>
 
   </main>

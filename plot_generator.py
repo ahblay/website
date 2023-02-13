@@ -128,4 +128,26 @@ def gre_curve():
     plt.tight_layout()
     plt.savefig('static/gre_curve.png', transparent=True)
 
-gre_curve()
+
+def log_map_example():
+    x = [0, 1, 2 ,3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+    y = [2, 2.54, 3.21, 4.01, 4.97, 6.01, 7.37, 8.76, 10.24,
+         11.74, 13.19, 14.54, 15.74, 16.74, 17.56, 18.2,18.69, 19.06]
+    plt.plot(x, y)
+    plt.ylabel('P_t')
+    plt.xlabel('t')
+    plt.tight_layout()
+    plt.savefig('static/log_map_example.png', transparent=True)
+
+
+def log_map_example_2():
+    x = [0, 1, 2 ,3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+    y = [2/20, 2.54/20, 3.21/20, 4.01/20, 4.97/20, 6.01/20, 7.37/20, 8.76/20, 10.24/20,
+         11.74/20, 13.19/20, 14.54/20, 15.74/20, 16.74/20, 17.56/20, 18.2/20,18.69/20, 19.06/20]
+    plt.plot(x, y)
+    plt.ylabel('x_t')
+    plt.xlabel('t')
+    plt.tight_layout()
+    plt.savefig('static/log_map_example_2.png', transparent=True)
+
+log_map_example_2()
