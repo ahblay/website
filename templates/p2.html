@@ -1,0 +1,62 @@
+{% extends "project_base.html" %}
+
+{% block data %}
+{% endblock %}
+
+{% block title %}
+Scheduling API
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/katex.min.css">
+{% endblock %}
+
+{% block ptitle %}Weaving and SEWING{% endblock %}
+
+{% block content %}
+<div class="desc">
+    I've been interested in weaving for a number of years. In high school, I took a course that taught me how to weave a scarf on a floor loom, and tablet weave a belt 
+    on an inkle loom. I recently purchased an inkle loom and have started weaving again. I want to document what that process has been like, 
+    what pitfalls I experienced, and how I dealt with them.  
+    <div class="title-sm yellow">Tablet Weaving</div>
+    Tablet weaving is an ancient technique that has been around since at least the 8th century BCE. It is predominantly used to weave narrow bands that 
+    are usually worn as belts, or used as trim of accent pieces on clothing. It is possible to weave wider bands, although the use of cards functionally 
+    limits the ability to create big pieces of fabric. However, some weavers will sew bands together lengthwise to create larger fabrics. 
+    <br><br>
+    The simplest weave (on a traditional loom) involves raising and lowering alternating warp threads, while passing a weft thread between them to 
+    lock them in place. This creates a plain weave that is often found in canvas and blankets. It is possible to characterize different fabrics 
+    by the over-under pattern of threads in the weft. Satin, for example, is created by floating the weft thread over 4 or more warp threads, before going 
+    under one warp thread, and repeating. In other words, while plain weave is over-under-over-under, satin is under-over-over-over-over-under. Twill is 
+    considered the third fundamental weave, and is characterized by an offset over-over-under-under pattern. Houndstooth and denim are examples.
+    <br><br>
+    All three fundamental weaves involve a process of raising and lowering warp threads in a repeating pattern, and locking this pattern in place by passing 
+    a weft thread through at each step. Tablet weaving functions the same way; however, warp threads are bundled in groups (typically of 4), and the raising and lowering of these 
+    threads is controlled by rotating a card. To see how this process might work, consider a square card with holes punched in opposite corners. 
+    Run a black thread through ones of these holes, and a white thread through the other.
+    Now, by rotating this card 180 degrees, we can control whether the white thread is on the top or the bottom. If we align a number of these cards and alternately 
+    rotate them forward 180 degrees, then back 180 degrees, each time passing a weft thread through the warp, we should obtain a a pattern matching that of 
+    plain weave. Of course, we needn't rotate all cards the same direction; by only turning every fifth card (and offsetting which card is turned each time), we can create satin.
+    <br><br>
+    Now consider threading each corner of our square cards. Rather than just one thread on the top and one on the bottom, we now have two. This results in two visible colors each time 
+    the weft passes through the warp (this is called a pick). Suppose that we are using white, black, red and blue threads (and four cards), and that we turn each card
+    forward for each pick. The resulting woven pattern will 
+    appear as follows (each [] represents threads belonging to the same card):
+    <ul>
+        <li>Pick 1: [white, black] [white, black] [white, black] [white, black]</li>
+        <li>Pick 2: [black, red] [black, red][black, red][black, red]</li>
+        <li>Pick 3: [white, blue] [red, blue] [red, blue] [red, blue]</li>
+        <li>Pick 4: [blue, white] [blue, white] [blue, white] [blue, white]</li>
+        <li>Pick 5: [white, black] [white, black] [white, black] [white, black]</li>
+    </ul> 
+    By continually turning the cards forward, the woven threads will appear diagonal to the unwoven warp threads. This is a characteristic 
+    pattern in tablet woven bands and is a result of the four threads being bundled together onto one card. 
+    <div class="title-sm yellow">First Attempt (2020)</div>
+    
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.2/katex.min.js" type="text/javascript"></script>
+<script src="/static/modal.js" type="text/javascript"></script>
+<script src="/static/math.js" type="text/javascript"></script>
+{% endblock %}
